@@ -96,3 +96,7 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
 
     spreadsheet = spreadsheet.get_worksheet(0)
 
+    # Append the values to the worksheet
+    # https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column
+    spreadsheet.append_row([owner_name, rest_type, zip_code])
+
