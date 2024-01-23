@@ -40,3 +40,13 @@ def validate_owner_name_input(owner_input):
             return owner_input
         else:
             print("Invalid Owner's Name. Please try again.")
+
+def validate_rest_type_input(rest_type_input):
+    # When inputting your restaurant, no excess space, numbers, special characters (e.g., ()/&!)
+    if any(d.isdigit() or not d.isalnum() for d in rest_type_input):
+        return False
+    
+    if len(rest_type_input.strip()) == 0: 
+        return False
+    
+    return True
