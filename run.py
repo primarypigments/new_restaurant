@@ -12,3 +12,4 @@ def show_program_menu():
     program_menu_items = ["View Statistics", "Add New Restaurant"]
     program_menu_cursor = " -> "
     program_menu_cursor_style = ("fg_purple", "bold")
+    program_menu_style = ("bg_yellow", "fg_gray")
