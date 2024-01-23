@@ -87,9 +87,10 @@ def get_valid_zip_code_input():
             return zip_code_input
         else:
             print("Invalid input. Please enter a valid zip code.")
-
+# https://spreadsheetpoint.com/python-google-sheets/
 def export_to_gsheets(owner_name, rest_type, zip_code):
     credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
+    # https://snyk.io/advisor/python/gspread/functions/gspread.authorize
     gc = gspread.authorize(credentials)
     spreadsheet = gc.open('survey_q')
     spreadsheet = spreadsheet.get_worksheet(0)
