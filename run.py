@@ -50,3 +50,13 @@ def validate_rest_type_input(rest_type_input):
         return False
     
     return True
+
+def get_valid_rest_type_input():
+    while True:
+        rest_type_input = input("Enter Restaurant Type: ")
+        rest_type_input = rest_type_input.strip()  
+
+        if validate_rest_type_input(rest_type_input):
+            return rest_type_input
+        else:
+            print("Invalid Restaurant Type. Please try again.")
