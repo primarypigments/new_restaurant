@@ -22,6 +22,9 @@ def show_program_menu():
     return selected_index
 
 def validate_owner_name_input(owner_input):
+    # https://www.w3schools.com/python/ref_string_isalpha.asp
+    # https://www.w3schools.com/python/ref_string_isspace.asp
+    # https://www.w3schools.com/python/ref_list_count.asp
     # Allow letters and a single space, but not numbers or special characters
     if not all((o.isalpha() or (o.isspace() and owner_input.count(o) == 1)) for o in owner_input):
         return False
@@ -42,10 +45,13 @@ def validate_owner_name_input(owner_input):
             print("Invalid Owner's Name. Please try again.")
 
 def validate_rest_type_input(rest_type_input):
+    # https://www.w3schools.com/python/ref_string_isdigit.asp
+    # https://www.w3schools.com/python/ref_string_isalnum.asp
+    #
     # When inputting your restaurant, no excess space, numbers, special characters (e.g., ()/&!)
     if any(d.isdigit() or not d.isalnum() for d in rest_type_input):
         return False
-    
+    # .strip()) == 0: credited to Mentor 
     if len(rest_type_input.strip()) == 0: 
         return False
     
