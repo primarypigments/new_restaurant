@@ -25,3 +25,8 @@ def validate_owner_name_input(owner_input):
     # Allow letters and a single space, but not numbers or special characters
     if not all((o.isalpha() or (o.isspace() and owner_input.count(o) == 1)) for o in owner_input):
         return False
+    
+    if len(owner_input.strip()) == 0:
+        return False
+    
+    return True
