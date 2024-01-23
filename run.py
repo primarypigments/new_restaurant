@@ -8,3 +8,4 @@ SCOPE = [
 ]
 
 def show_program_menu():
+    program_menu_title = "Select an option:"
