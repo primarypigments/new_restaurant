@@ -20,3 +20,5 @@ def show_program_menu():
 
     selected_index = program_menu.show()
     return selected_index
+
+def validate_owner_name_input(owner_input):
