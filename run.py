@@ -91,3 +91,6 @@ def get_valid_zip_code_input():
 def export_to_gsheets(owner_name, rest_type, zip_code):
     credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
     gc = gspread.authorize(credentials)
+
+    spreadsheet = gc.open('survey_q')
+
