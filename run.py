@@ -60,3 +60,24 @@ def get_valid_rest_type_input():
             return rest_type_input
         else:
             print("Invalid Restaurant Type. Please try again.")
+
+def validate_zip_code(zip_code):
+    # Check if the zip code is not empty
+    if len(zip_code.strip()) == 0:
+        return False
+
+    # Check if the zip code consists only digits
+    if not zip_code.isdigit():
+        return False
+
+    return True
+
+def get_valid_zip_code_input():
+    while True:
+        zip_code_input = input("Enter Zip Code: ")
+        zip_code_input = zip_code_input.strip()
+
+        if validate_zip_code(zip_code_input):
+            return zip_code_input
+        else:
+            print("Invalid input. Please enter a valid zip code.")
