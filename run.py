@@ -94,3 +94,5 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
 
     spreadsheet = gc.open('survey_q')
 
+    spreadsheet = spreadsheet.get_worksheet(0)
+
