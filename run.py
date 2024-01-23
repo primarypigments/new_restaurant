@@ -30,3 +30,13 @@ def validate_owner_name_input(owner_input):
         return False
     
     return True
+
+    def get_valid_owner_name_input():
+    while True:
+        owner_input = input("Enter owner's name: ")
+        owner_input = owner_input.strip() 
+
+        if validate_owner_name_input(owner_input):
+            return owner_input
+        else:
+            print("Invalid Owner's Name. Please try again.")
