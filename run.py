@@ -11,3 +11,4 @@ def show_program_menu():
     program_menu_title = "Select an option:"
     program_menu_items = ["View Statistics", "Add New Restaurant"]
     program_menu_cursor = " -> "
+    program_menu_cursor_style = ("fg_purple", "bold")
