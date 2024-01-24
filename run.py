@@ -44,7 +44,21 @@ def owners_only_view_statistics():
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
 
-def validate_owner_name_input(owner_input):
+def add_new_restaurant():
+    owner_name = get_valid_owner_name_input()
+    rest_type = get_valid_rest_type_input()
+    zip_code = get_valid_zip_code_input()
+
+    print("Owner's Name:", owner_name)
+    print("Restaurant Type:", rest_type)
+    print("Zip Code:", zip_code)
+
+    export_to_gsheets(owner_name, rest_type, zip_code)
+    print("Restaurant added successfully!")
+
+
+
+def valid_owner_name_input(owner_input):
     # https://www.w3schools.com/python/ref_string_isalpha.asp
     # https://www.w3schools.com/python/ref_string_isspace.asp
     # https://www.w3schools.com/python/ref_list_count.asp
