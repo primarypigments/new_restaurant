@@ -135,3 +135,17 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
     # https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column
     spreadsheet.append_row([owner_name, rest_type, zip_code])
 
+# https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+if __name__ == "__main__":
+    selected_option = None
+
+    while selected_option != 2:  # Exit when option is 2
+        selected_option = show_program_menu()
+
+        if selected_option == 1:
+            add_new_restaurant()
+        elif selected_option == 2:
+            owners_only_view_statistics()
+
+    print("Exiting the program.")
+
