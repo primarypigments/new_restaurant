@@ -24,8 +24,11 @@ def show_program_menu():
 def owners_only_view_statistics():
     # Calls for owner's name input
     owner_name = get_valid_owner_name_input()
+
     # Load existing data from Google Sheets (survey_q)
     credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
+    gc = gspread.authorize(credentials)
+
 def validate_owner_name_input(owner_input):
     # https://www.w3schools.com/python/ref_string_isalpha.asp
     # https://www.w3schools.com/python/ref_string_isspace.asp
