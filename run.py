@@ -139,13 +139,14 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
 if __name__ == "__main__":
     selected_option = None
 
-    while selected_option != 2:  # Exit when option is 2
+    while selected_option != 1:  
+        
         selected_option = show_program_menu()
 
         if selected_option == 1:
-            add_new_restaurant()
-        elif selected_option == 2:
-            owners_only_view_statistics()
+                    add_new_restaurant()
+        elif selected_option == 0:
+                    view_statistics()
 
-    print("Exiting the program.")
+print("Exiting the program.")
 
