@@ -122,15 +122,16 @@ def get_valid_zip_code_input():
         if validate_zip_code(zip_code_input):
             return zip_code_input
         else:
-            print("Invalid input. Please enter a valid zip code.")
+            print("Invalid input. Please enter a valid Zip Code.")
 # https://spreadsheetpoint.com/python-google-sheets/
 def export_to_gsheets(owner_name, rest_type, zip_code):
+    # # https://spreadsheetpoint.com/python-google-sheets/
     credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
     # https://snyk.io/advisor/python/gspread/functions/gspread.authorize
     gc = gspread.authorize(credentials)
     spreadsheet = gc.open('survey_q')
     spreadsheet = spreadsheet.get_worksheet(0)
-    # Append the values to the worksheet
+    # Append the values to Google Sheets
     # https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column
     spreadsheet.append_row([owner_name, rest_type, zip_code])
 
