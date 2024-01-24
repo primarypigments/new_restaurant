@@ -35,6 +35,15 @@ def owners_only_view_statistics():
     # Get all values in the first column (owner names)
     valid_owner_names = worksheet.col_values(1)
 
+    # Check if the entered owner's name already exists
+    if owner_name in valid_owner_names:
+        print(f"Owner's Name '{owner_name}' Welcome Back. Proceeding to Cuisine Type.")
+        cuisine_type = get_valid_cuisine_type_input()
+        print("Cuisine Type:", cuisine_type)
+        
+    else:
+        print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
+
 def validate_owner_name_input(owner_input):
     # https://www.w3schools.com/python/ref_string_isalpha.asp
     # https://www.w3schools.com/python/ref_string_isspace.asp
