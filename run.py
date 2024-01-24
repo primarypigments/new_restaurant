@@ -29,6 +29,12 @@ def owners_only_view_statistics():
     credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
     gc = gspread.authorize(credentials)
 
+    spreadsheet = gc.open('survey_q')
+    worksheet = spreadsheet.get_worksheet(0)
+
+    # Get all values in the first column (owner names)
+    valid_owner_names = worksheet.col_values(1)
+
 def validate_owner_name_input(owner_input):
     # https://www.w3schools.com/python/ref_string_isalpha.asp
     # https://www.w3schools.com/python/ref_string_isspace.asp
