@@ -21,6 +21,7 @@ def show_program_menu():
     selected_index = program_menu.show()
     return selected_index
 
+def owners_only_view_statistics():
 def validate_owner_name_input(owner_input):
     # https://www.w3schools.com/python/ref_string_isalpha.asp
     # https://www.w3schools.com/python/ref_string_isspace.asp
