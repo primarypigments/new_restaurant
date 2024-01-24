@@ -71,15 +71,14 @@ def valid_owner_name_input(owner_input):
     
     return True
 
-    def get_valid_owner_name_input():
-    while True:
-        owner_input = input("Enter owner's name: ")
-        owner_input = owner_input.strip() 
+def get_valid_owner_name_input():
+    owner_input = input("Enter owner's name: ")
+    owner_input = owner_input.strip() 
 
-        if validate_owner_name_input(owner_input):
-            return owner_input
-        else:
-            print("Invalid Owner's Name. Please try again.")
+    if valid_owner_name_input(owner_input):
+        return owner_input
+    else:
+        print("Invalid Owner's Name. Please try again.")
 
 def validate_rest_type_input(rest_type_input):
     # https://www.w3schools.com/python/ref_string_isdigit.asp
