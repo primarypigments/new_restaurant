@@ -130,7 +130,13 @@ def add_new_restaurant():
     export_to_gsheets(owner_name, rest_type, zip_code)
     print("Restaurant added successfully!")
 
-
+    # Prompt to return to the main menu
+    return_to_menu = input("Press Enter to return to the main menu.")
+    if return_to_menu:
+        return show_program_menu()
+    else:
+        print("Invalid input. Returning to the main menu.")
+        return show_program_menu()
 
 def valid_owner_name_input(owner_input):
     # https://www.w3schools.com/python/ref_string_isalpha.asp
