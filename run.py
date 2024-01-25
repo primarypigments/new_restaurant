@@ -69,6 +69,16 @@ def view_statistics():
 
         if not filtered_rows:
             print(f"No data found for the entered zip code: {zip_code}")
+        else:
+            # Calculate the row index (adding 1 because list indices start from 0, but Gsheets row indices start from 1)
+            row_index = all_rows.index(filtered_rows[0]) + 1
+
+            # Get user input for the restaurant type
+            column_name_input = input("Enter Restaurant Type: ")
+
+            # Get the header row (assuming it's the first row in the sheet)
+            header_row = worksheet.row_values(1)
+
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
         print("Viewing Statistics - Not implemented yet.")
