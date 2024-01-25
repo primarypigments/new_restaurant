@@ -79,6 +79,9 @@ def view_statistics():
             # Get the header row (assuming it's the first row in the sheet)
             header_row = worksheet.row_values(1)
 
+                # Find the index of the column with the given name
+                column_index_input = header_row.index(column_name_input) + 1
+
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
         print("Viewing Statistics - Not implemented yet.")
