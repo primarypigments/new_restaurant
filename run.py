@@ -63,6 +63,10 @@ def view_statistics():
 
         # Get all rows from the sheet
         all_rows = worksheet.get_all_values()
+
+        # Find the row index that matches the entered zip code
+        filtered_rows = [row for row in all_rows if row[zip_code_column_index] == zip_code]
+
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
         print("Viewing Statistics - Not implemented yet.")
