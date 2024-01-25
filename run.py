@@ -21,28 +21,38 @@ def show_program_menu():
     selected_index = program_menu.show()
     return selected_index
 
-def owners_only_view_statistics():
-    # Calls for owner's name input
-    owner_name = get_valid_owner_name_input()
-
-    # Load existing data from Google Sheets (survey_q)
+def load_valid_values(sheet_name, column_index):
+    # Load existing data from Gsheets
     credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
     gc = gspread.authorize(credentials)
 
-    spreadsheet = gc.open('survey_q')
+    spreadsheet = gc.open(sheet_name)
     worksheet = spreadsheet.get_worksheet(0)
 
-    # Get all values in the first column (owner names)
-    valid_owner_names = worksheet.col_values(1)
+    # Get all values in the specified column
+    valid_values = worksheet.col_values(column_index)
+    return valid_values
+
+def view_statistics():
+    # Calls for owner's name input
+    owner_name = get_valid_owner_name_input()
+
+    # Load existing data for owner names
+    valid_owner_names = load_valid_values('survey_q', 1)
 
     # Check if the entered owner's name already exists
     if owner_name in valid_owner_names:
-        print(f"Owner's Name '{owner_name}' Welcome Back. Proceeding to Cuisine Type.")
-        cuisine_type = get_valid_cuisine_type_input()
-        print("Cuisine Type:", cuisine_type)
-        
+        print(f"Owner's Name '{owner_name}' Welcome Back.")
+        # Call function to get food type input
+        food_type = get_food_type_input()
+        print(f"Food Type: {food_type}")
+        # Call function to get zip code input
+        zip_code = get_zip_code_input()
+        print(f"Zip Code: {zip_code}")
+    
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
+        print("Viewing Statistics - Not implemented yet.")
 
 def add_new_restaurant():
     owner_name = get_valid_owner_name_input()
