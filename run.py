@@ -1,6 +1,7 @@
 from simple_term_menu import TerminalMenu
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 # SCOPE scourced from code institue 
 SCOPE = [
