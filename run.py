@@ -67,6 +67,8 @@ def view_statistics():
         # Find the row index that matches the entered zip code
         filtered_rows = [row for row in all_rows if row[zip_code_column_index] == zip_code]
 
+        if not filtered_rows:
+            print(f"No data found for the entered zip code: {zip_code}")
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
         print("Viewing Statistics - Not implemented yet.")
