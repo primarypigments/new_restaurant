@@ -79,8 +79,18 @@ def view_statistics():
             # Get the header row (assuming it's the first row in the sheet)
             header_row = worksheet.row_values(1)
 
+            try:
                 # Find the index of the column with the given name
                 column_index_input = header_row.index(column_name_input) + 1
+
+                # Use the index to get the cell at the intersection
+                cell_at_intersection = worksheet.cell(row_index, column_index_input)
+
+                # Print the number of restaurants of the desired type
+                print(f"Number of restaurants of type '{cell_at_intersection}' in zip code {zip_code}")
+
+            except ValueError:
+                print(f"Column '{column_name_input}' not found in the header row.")
 
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
