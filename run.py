@@ -54,6 +54,27 @@ def view_statistics():
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
         print("Viewing Statistics - Not implemented yet.")
 
+def get_food_type_input():
+    # Function to get valid food type input from the user
+    while True:
+        rest_type_input = input("Enter Food Type: ").strip()
+        
+        # Validation code for food type input
+        if any(d.isdigit() or not d.isalnum() for d in rest_type_input.lower()) or len(rest_type_input.strip()) == 0:
+            print("Invalid input. Please enter a valid Food Type.")
+        else:
+            return rest_type_input
+
+def get_zip_code_input():
+    # Function to get valid zip code input from the user
+    while True:
+        zip_code = input("Enter Zip Code: ").strip()
+
+        # Validation code for zip code input
+        if len(zip_code.strip()) == 0 or not zip_code.isdigit():
+            print("Invalid input. Please enter a valid Zip Code.")
+        else:
+            return zip_code
 def add_new_restaurant():
     owner_name = get_valid_owner_name_input()
     rest_type = get_valid_rest_type_input()
