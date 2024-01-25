@@ -49,7 +49,18 @@ def view_statistics():
         # Call function to get zip code input
         zip_code = get_zip_code_input()
         print(f"Zip Code: {zip_code}")
-    
+
+        # Load data from Gsheets
+        sheet_name = "stat"
+        zip_code_column_index = 0
+
+        # Load existing data from Gsheets
+        credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
+        gc = gspread.authorize(credentials)
+
+        spreadsheet = gc.open(sheet_name)
+        worksheet = spreadsheet.get_worksheet(0)
+
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
         print("Viewing Statistics - Not implemented yet.")
