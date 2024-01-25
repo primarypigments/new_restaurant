@@ -61,6 +61,8 @@ def view_statistics():
         spreadsheet = gc.open(sheet_name)
         worksheet = spreadsheet.get_worksheet(0)
 
+        # Get all rows from the sheet
+        all_rows = worksheet.get_all_values()
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
         print("Viewing Statistics - Not implemented yet.")
