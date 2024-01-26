@@ -141,7 +141,7 @@ def add_new_restaurant():
     print("Restaurant added successfully!")
 
     # Prompt to return to the main menu
-    return_to_menu = input("Press Enter to return to the main menu.")
+    return_to_menu = input("Press Enter to return to the main menu.\n")
     if return_to_menu:
         return show_program_menu()
     else:
@@ -162,7 +162,7 @@ def valid_owner_name_input(owner_input):
     return True
 
 def get_valid_owner_name_input():
-    owner_input = input("Enter owner's name: ")
+    owner_input = input("Enter owner's name: \n")
     owner_input = owner_input.strip()
 
     if valid_owner_name_input(owner_input):
@@ -173,7 +173,6 @@ def get_valid_owner_name_input():
 def validate_rest_type_input(rest_type_input):
     # https://www.w3schools.com/python/ref_string_isdigit.asp
     # https://www.w3schools.com/python/ref_string_isalnum.asp
-    #
     # When inputting your restaurant, no excess space, numbers, special characters (e.g., ()/&!)
     if any(d.isdigit() or not d.isalnum() for d in rest_type_input):
         return False
@@ -185,7 +184,7 @@ def validate_rest_type_input(rest_type_input):
 
 def get_valid_rest_type_input():
     while True:
-        rest_type_input = input("Enter Restaurant Type: ")
+        rest_type_input = input("Enter Restaurant Type: \n")
         rest_type_input = rest_type_input.strip()
 
         if validate_rest_type_input(rest_type_input):
@@ -198,18 +197,18 @@ def validate_zip_code(zip_code):
     if len(zip_code.strip()) == 0:
         return False
     
-
     return True
 
 def get_valid_zip_code_input():
     while True:
-        zip_code_input = input("Enter Zip Code: ")
+        zip_code_input = input("Enter Zip Code: \n")
         zip_code_input = zip_code_input.strip()
 
         if validate_zip_code(zip_code_input):
             return zip_code_input
         else:
             print("Invalid input. Please enter a valid Zip Code.")
+
 # https://spreadsheetpoint.com/python-google-sheets/
 def export_to_gsheets(owner_name, rest_type, zip_code):
     # # https://spreadsheetpoint.com/python-google-sheets/
@@ -227,13 +226,11 @@ if __name__ == "__main__":
     selected_option = None
 
     while selected_option != 1:  
-        
         selected_option = show_program_menu()
 
         if selected_option == 1:
-                    add_new_restaurant()
+            add_new_restaurant()
         elif selected_option == 0:
-                    view_statistics()
+            view_statistics()
 
 print("Exiting the program.")
-
