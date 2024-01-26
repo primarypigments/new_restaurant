@@ -79,11 +79,9 @@ def view_statistics():
                 # Find the index of the column with the given name
                 column_index_input = header_row.index(column_name_input) + 1
 
-                # Use the index to get the cell at the intersection
-                cell_at_intersection = worksheet.cell(row_index, column_index_input)
-
-                # Print the number of restaurants of the desired type
-                print(f"Number of restaurants of type '{cell_at_intersection}' in zip code {zip_code}")
+                # Iterate through rows to find the cell with the specified row_index and column_index_input
+                # https://realpython.com/python-enumerate/
+                # Loop through all_rows with enumeration, starting from 1
 
             except ValueError:
                 print(f"Column '{column_name_input}' not found in the header row.")
