@@ -76,7 +76,7 @@ def view_statistics():
             row_index = all_rows.index(filtered_rows[0]) + 1
 
             # Get user input for the restaurant type
-            column_name_input = input("Enter Restaurant Type: ")
+            column_name_input = get_food_type_input()
 
             # Get the header row (assuming it's the first row in the sheet)
             header_row = worksheet.row_values(1)
