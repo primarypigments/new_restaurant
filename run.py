@@ -82,6 +82,16 @@ def view_statistics():
                 # Iterate through rows to find the cell with the specified row_index and column_index_input
                 # https://realpython.com/python-enumerate/
                 # Loop through all_rows with enumeration, starting from 1
+                for row_number, row in enumerate(all_rows, start=1):
+                    # Check if the value in the specified column (zip_code_column_index) matches the target zip_code
+                    if row[zip_code_column_index] == zip_code:
+                        # Check if the current row's index matches the given row_index
+                        if row_index == row_number:
+                             # Access the cell at the specified column index (column_index_input), adjusting to 0-based index
+                            cell_at_intersection = row[column_index_input - 1]  # Adjust to 0-based index
+                             # Print information about the number of restaurants in the specified zip code
+                            print(f"Number of {column_name_input} restaurants '{cell_at_intersection}' in zip code {zip_code}")
+                            break
 
             except ValueError:
                 print(f"Column '{column_name_input}' not found in the header row.")
