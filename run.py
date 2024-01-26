@@ -103,7 +103,7 @@ def view_statistics():
                 print(f"Column '{column_name_input}' not found in the header row.")
 
     else:
-        print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu.")
+        print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu, and add a new resturant.")
         print("Viewing Statistics - Not implemented yet.")
 
 def get_food_type_input():
