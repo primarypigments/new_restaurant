@@ -18,7 +18,13 @@ def show_program_menu():
     program_menu_cursor_style = ("fg_purple", "bold")
     program_menu_style = ("bg_yellow", "fg_gray")
 
-    program_menu = TerminalMenu(program_menu_items, title=program_menu_title, menu_cursor=program_menu_cursor, menu_cursor_style=program_menu_cursor_style, menu_highlight_style=program_menu_style)
+    program_menu = TerminalMenu(
+        program_menu_items,
+        title=program_menu_title,
+        menu_cursor=program_menu_cursor,
+        menu_cursor_style=program_menu_cursor_style,
+        menu_highlight_style=program_menu_style
+    )
 
     selected_index = program_menu.show()
     return selected_index
@@ -34,7 +40,8 @@ def load_valid_values(sheet_name, column_index):
     # Get all values in the specified column
     valid_values = worksheet.col_values(column_index)
     return valid_values
-
+# allowing the user to view information about the number of 
+# restaurants of a specific type in a given zip code
 def view_statistics():
     owner_name = get_valid_owner_name_input()
     valid_owner_names = load_valid_values('survey_q', 1)
@@ -57,16 +64,15 @@ def view_statistics():
         spreadsheet = gc.open(sheet_name)
         worksheet = spreadsheet.get_worksheet(0)
 
-        # Get all rows from the sheet
+        # Get all rows from the Gsheet
         all_rows = worksheet.get_all_values()
 
         # Find the row index that matches the entered zip code
         filtered_rows = [row for row in all_rows if row[zip_code_column_index] == zip_code]
-
         if not filtered_rows:
             print(f"No data found for the entered zip code: {zip_code}")
         else:
-            # Calculate the row index (adding 1 because list indices start from 0, but Gsheets row indices start from 1)
+            # Calculate the row index (adding 1 because list indices srt from 0, but Gsheets row indices start from 1)
             row_index = all_rows.index(filtered_rows[0]) + 1
 
             # Get user input for the restaurant type
