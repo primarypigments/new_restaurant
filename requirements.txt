@@ -1,1 +1,1 @@
-simple-term-menu==1.0.9
+simple-term-menu==1.6.4
