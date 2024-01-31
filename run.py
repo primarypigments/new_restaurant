@@ -35,6 +35,22 @@ def display_sheet_data():
         print(tabulate([row], tablefmt="fancy_grid"))
 
 
+def edit_sheet_data(row_index, column_index, new_value):
+    """
+    This function edits the data in the 
+    Gsheet at the specified row and column.
+    """
+    credentials = Credentials.from_service_account_file(
+        'creds.json', scopes=SCOPE)
+    gc = gspread.authorize(credentials)
+    spreadsheet = gc.open('survey_q')
+    worksheet = spreadsheet.get_worksheet(0)
+
+    # Update the value at the specified cell
+    # https://stackoverflow.com/questions/59701452/how-to-update-cells-in-a-google-spreadsheet-with-python-s-gspread-wks-update-cel
+    worksheet.update_cell(row_index, column_index, new_value)
+
+ 
 # https://pypi.org/project/simple-term-menu/ used for following code
 def show_program_menu():
     """
@@ -42,8 +58,8 @@ def show_program_menu():
      class from the simple_term_menu library. 
     """
     program_menu_title = "Select an option:"
-    program_menu_items = ["View Statistics", "Add New Restaurant", "Edit Restaurants",
-    "Exit Program"]
+    program_menu_items = ["View Statistics", "Add New Restaurant", 
+    "Edit Restaurants", "Exit Program"]
     program_menu_cursor = " -> "
     program_menu_cursor_style = ("fg_purple", "bold")
     program_menu_style = ("bg_yellow", "fg_gray")
