@@ -335,6 +335,34 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
     spreadsheet.append_row([owner_name.lower(), rest_type, zip_code])
 
 
+def edit_restaurants():
+    """
+    This function edits and deletes data in 
+    survey_q gsheet based on user input.
+
+    """
+    credentials = Credentials.from_service_account_file(
+        'creds.json', scopes=SCOPE)
+    gc = gspread.authorize(credentials)
+    spreadsheet = gc.open('survey_q')
+    spreadsheet = spreadsheet.get_worksheet(0)
+    display_sheet_data()
+
+    # Get user input for editing
+    # https://discuss.python.org/t/im-new-to-python-convention-question/29680
+    row_index = int(input("Enter the row index to edit: \n"))
+    column_index = int(input("Enter the column index to edit: \n"))
+    new_value = input("Enter the new value: \n")
+
+    edit_sheet_data(row_index, column_index, new_value)
+    display_data()
+
+    # Get user input for deletion
+    row_index_to_delete = int(input("Enter the row index to delete: \n"))
+    delete_row(row_index_to_delete)
+    display_data()
+
+
 def exits():
     
     print("Exiting the program.")
