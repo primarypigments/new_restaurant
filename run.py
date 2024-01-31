@@ -184,7 +184,7 @@ def get_food_type_input():
     """ 
     # Function to get valid food type input from the user
     while True:
-        rest_type_input = input("Enter Food Type: ").strip()
+        rest_type_input = input("Enter Food Type: \n").strip()
 
         # Validation code for food type input
         if any(d.isdigit() or not d.isalnum() for d in rest_type_input.lower()
@@ -201,7 +201,7 @@ def get_zip_code_input():
     """ 
     # Function to get valid zip code input from the user
     while True:
-        zip_code = input("Enter Zip Code: ").strip()
+        zip_code = input("Enter Zip Code: \n").strip()
 
         # Validation code for zip code input
         if len(zip_code.strip()) == 0 or not zip_code.isdigit():
