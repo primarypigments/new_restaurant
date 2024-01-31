@@ -1,4 +1,5 @@
 from simple_term_menu import TerminalMenu
+from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
@@ -10,6 +11,28 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
 ]
+
+
+def display_sheet_data():
+    """
+    This function displays the data from the Gsheet.
+    """
+    credentials = Credentials.from_service_account_file(
+        'creds.json', scopes=SCOPE)
+    gc = gspread.authorize(credentials)
+    spreadsheet = gc.open('survey_q')
+    worksheet = spreadsheet.get_worksheet(0)
+
+     # Get all rows from the Gsheet
+    all_rows = worksheet.get_all_values()
+
+    # Display the header row
+    header_row = all_rows[0]
+    print(tabulate([header_row], headers="firstrow", tablefmt="fancy_grid"))
+
+    # Display each row's data
+    for row in all_rows[1:]:
+        print(tabulate([row], tablefmt="fancy_grid"))
 
 
 # https://pypi.org/project/simple-term-menu/ used for following code
