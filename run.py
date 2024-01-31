@@ -19,7 +19,7 @@ def show_program_menu():
      class from the simple_term_menu library. 
     """
     program_menu_title = "Select an option:"
-    program_menu_items = ["View Statistics", "Add New Restaurant",
+    program_menu_items = ["View Statistics", "Add New Restaurant", "Edit Restaurants",
     "Exit Program"]
     program_menu_cursor = " -> "
     program_menu_cursor_style = ("fg_purple", "bold")
@@ -322,8 +322,11 @@ while not quitting:
             add_new_restaurant()
         elif selected_option == 0:
             view_statistics()
-        elif selected_option == 2:
+        elif selected_option == 3:
             quitting = True
+        elif selected_option == 2:
+            edit_restaurants()
+        
             break
 
     exits()
