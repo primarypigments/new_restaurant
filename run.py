@@ -2,7 +2,7 @@ from simple_term_menu import TerminalMenu
 from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+#from pprint import pprint
 
 
 # SCOPE sourced from code institute
