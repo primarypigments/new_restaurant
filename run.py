@@ -315,18 +315,21 @@ def select_zip_code_list():
 
     while True:
         try:
+            owner_input = input("Enter the Zip Code of your choice (1-10): ")
 
             # Check if input starts with 0
             if owner_input.startswith("0"):
                 print("Invalid input. Cannot start with 0. Please enter a valid number.")
                 continue
 
+            if " " in owner_input:
                 print("Invalid input. Spaces are not allowed. Please enter a valid number.")
                 continue
-            user_choice = int(user_input)
 
-            if 1 <= user_choice <= 10:
-                return zip_codes[user_choice - 1]
+            owner_choice = int(owner_input)
+
+            if 1 <= owner_choice <= 10:
+                return zip_codes[owner_choice - 1]
             else:
                 print("Invalid choice. Please enter a number between 1 and 10.")
         except ValueError:
@@ -361,6 +364,8 @@ def display_restaurant_types_list():
 
     while True:
         try:
+            owner_choice = input("Enter (1-15) for desired restaurant type:/n ")
+
             if owner_input.startswith("0"):
                 print("Invalid input. Cannot start with 0. Please enter a valid number.")
                 continue
@@ -370,10 +375,10 @@ def display_restaurant_types_list():
                 print("Invalid input. Spaces are not allowed. Please enter a valid number.")
                 continue
 
-            user_choice = int(user_choice)
+            owner_choice = int(user_choice)
 
-            if 1 <= user_choice <= 15:
-                return restaurant_types[user_choice - 1]
+            if 1 <= owner_choice <= 15:
+                return restaurant_types[owner_choice - 1]
             else:
                 print("Invalid choice. Please enter a number between 1 and 15.")
         except ValueError:
