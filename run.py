@@ -2,8 +2,6 @@ from simple_term_menu import TerminalMenu
 from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
-#from pprint import pprint
-
 
 # SCOPE sourced from code institute
 SCOPE = [
@@ -11,6 +9,13 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
 ]
+
+
+def exits():
+    """
+    This function prints a message indicating program exit.
+    """
+    print("Exiting the program.")
 
 
 def display_sheet_data():
@@ -23,7 +28,7 @@ def display_sheet_data():
     spreadsheet = gc.open('survey_q')
     worksheet = spreadsheet.get_worksheet(0)
 
-     # Get all rows from the Gsheet
+    # Get all rows from the Gsheet
     all_rows = worksheet.get_all_values()
 
     # Display the header row
@@ -38,7 +43,6 @@ def display_sheet_data():
 def display_sheet_rows(row_indices):
     """
     Display rows in the worksheet based on their indices.
-
     """
     credentials = Credentials.from_service_account_file(
         'creds.json', scopes=SCOPE)
@@ -50,21 +54,20 @@ def display_sheet_rows(row_indices):
     for row_index in row_indices:
         print(f"Row {row_index}: {values[row_index - 1]}")
 
+
 def find_rows_by_input(worksheet, search_value):
     """
     Find all rows in a worksheet containing the specified value.
-
     """
     values = worksheet.get_all_values()
-    matched_rows = [index + 1 for index, row
-    in enumerate(values) if search_value in row]
+    matched_rows = [index + 1 for index, row in enumerate(values) 
+    if search_value in row]
     return matched_rows
 
 
 def edit_sheet_data(row_index, column_index, new_value):
     """
-    This function edits the data in the 
-    Gsheet at the specified row and column.
+    This function edits the data in the Gsheet at the specified row and column.
     """
     credentials = Credentials.from_service_account_file(
         'creds.json', scopes=SCOPE)
@@ -76,16 +79,17 @@ def edit_sheet_data(row_index, column_index, new_value):
     # https://stackoverflow.com/questions/59701452/how-to-update-cells-in-a-google-spreadsheet-with-python-s-gspread-wks-update-cel
     worksheet.update_cell(row_index, column_index, new_value)
 
- 
 # https://pypi.org/project/simple-term-menu/ used for following code
+
+
 def show_program_menu():
     """
-     This function does displays a menu using the TerminalMenu 
-     class from the simple_term_menu library. 
+    This function displays a menu using the TerminalMenu
+    class from the simple_term_menu library.
     """
     program_menu_title = "Select an option:"
-    program_menu_items = ["View Statistics", "Add New Restaurant", 
-    "Edit Restaurants", "Exit Program"]
+    program_menu_items = ["Add New Restaurant",
+    "View Statistics", "Edit Restaurants", "Exit Program"]
     program_menu_cursor = " -> "
     program_menu_cursor_style = ("fg_purple", "bold")
     program_menu_style = ("bg_yellow", "fg_gray")
@@ -104,8 +108,7 @@ def show_program_menu():
 
 def load_valid_values(sheet_name, column_index):
     """
-    This function loads valid values from a
-     specified Google Sheets column.
+    This function loads valid values from a specified Google Sheets column.
     """
     # Load existing data from Gsheets
     credentials = Credentials.from_service_account_file(
@@ -120,12 +123,13 @@ def load_valid_values(sheet_name, column_index):
     valid_values = worksheet.col_values(column_index)
     return valid_values
 
-
 # allowing the user to view information about the number of
 # restaurants of a specific type in a given zip code
+
+
 def view_statistics():
     """
-    This function  allows the user to view information about the number of 
+    This function allows the user to view information about the number of
     restaurants of a specific type in a given zip code.
     """
     owner_name = get_valid_owner_name_input()
@@ -158,7 +162,7 @@ def view_statistics():
         if not filtered_rows:
             print(f"No data found for the entered zip code: {zip_code}")
         else:
-            # Calculate the row index (adding 1 because list indices start from 
+            # Calculate the row index (adding 1 because list indices start from
             # 0, but Gsheets row indices start from 1)
             row_index = all_rows.index(filtered_rows[0]) + 1
 
@@ -172,32 +176,28 @@ def view_statistics():
                 # Find the index of the column with the given name
                 column_index_input = header_row.index(column_name_input) + 1
 
-                # Iterate through rows to find the cell with the specified 
+                # Iterate through rows to find the cell with the specified
                 # row_index and column_index_input
                 # https://realpython.com/python-enumerate/
                 # Loop through all_rows with enumeration, starting from 1
                 for row_number, row in enumerate(all_rows, start=1):
-                    # Check if the value in the specified column 
+                    # Check if the value in the specified column
                     # (zip_code_column_index) matches the target zip_code
                     if row[zip_code_column_index] == zip_code:
-                        # Check if the current row's index matches 
+                        # Check if the current row's index matches
                         # the given row_index
                         if row_index == row_number:
-                            # Access the cell at the specified column index 
+                            # Access the cell at the specified column index
                             # (column_index_input), adjusting to 0-based index
-                            cell_at_intersection = row[column_index_input - 1]  
+                            cell_at_intersection = row[column_index_input - 1]
                             # Adjust to 0-based index
-                            # Print information about the number of restaurants 
+                            # Print information about the number of restaurants
                             # in the specified zip code
-                            print(f"Number of {column_name_input} restaurants '{cell_at_intersection}' in zip code {zip_code}")
-                            
-
+                            print(
+                                f"Number of {column_name_input} restaurants '{cell_at_intersection}' in zip code {zip_code}")
                             break
-
             except ValueError:
-                print(
-                f"Column '{column_name_input}' not found in the header row.")
-
+                print(f"Column '{column_name_input}' not found in the header row.")
     else:
         print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu, and add a new restaurant.")
         print("Viewing Statistics - Not implemented yet.")
@@ -209,7 +209,6 @@ def add_new_restaurant():
     Collects input for owner name, restaurant type, and zip code.
     Prints the collected information.
     Appends the information to the Gsheet.
-
     """
     owner_name = get_valid_owner_name_input()
     rest_type = display_restaurant_types_list()
@@ -224,22 +223,16 @@ def add_new_restaurant():
 
     # Prompt to return to the main menu
     return_to_menu = input("Press Enter to return to the main menu.\n")
-
     return show_program_menu()
 
 
 def valid_owner_name_input(owner_input):
     """
-    This function validates the owner name input. 
-    
+    This function validates the owner name input.
     Ensures that the owner name contains only letters and a single space.
-    """ 
-    # https://www.w3schools.com/python/ref_string_isalpha.asp
-    # https://www.w3schools.com/python/ref_string_isspace.asp
-    # https://www.w3schools.com/python/ref_list_count.asp
-    # Allow letters and a single space, but not numbers or special characters
+    """
     while owner_input is None or not (all((o.isalpha() or (
-        o.isspace() and owner_input.count(o) == 1))
+            o.isspace() and owner_input.count(o) == 1))
          for o in owner_input) and len(owner_input.strip()) > 0):
         owner_input = input("Invalid input. Please enter a valid owner name: ")
 
@@ -248,29 +241,28 @@ def valid_owner_name_input(owner_input):
 
 def get_valid_owner_name_input():
     """
-    This function retrieves valid 
-    owner name input from the user. 
-    
-    """ 
+    This function retrieves valid owner name input from the user.
+    """
     owner_input = input("Enter owner's name: \n")
     owner_input = owner_input.strip()
 
     if valid_owner_name_input(owner_input):
-        return owner_input
+        return owner_input.lower()  # Convert to lowercase
     else:
         print("Invalid Owner's Name. Please try again.")
 
-
 # https://spreadsheetpoint.com/python-google-sheets/
+
+
 def export_to_gsheets(owner_name, rest_type, zip_code):
     """
     This function appends data to a Gsheet.
-    Uses the gspread library to authenticate and 
-    append a new row to a Google Sheet. 
-    
-    """ 
+    Uses the gspread library to authenticate and
+    append a new row to a Google Sheet.
+    """
     # # https://spreadsheetpoint.com/python-google-sheets/
-    credentials = Credentials.from_service_account_file('creds.json', scopes=SCOPE)
+    credentials = Credentials.from_service_account_file(
+        'creds.json', scopes=SCOPE)
     # https://snyk.io/advisor/python/gspread/functions/gspread.authorize
     gc = gspread.authorize(credentials)
     spreadsheet = gc.open('survey_q')
@@ -291,9 +283,8 @@ def get_column_index_input():
 
 def get_new_input(index_input):
     """
-    Takes a column index as input and 
-    returns corresponding user input based on the index.
-    
+    Takes a column index as input and returns
+    corresponding user input based on the index.
     """
     if index_input == '1':
         new_owner_name = get_valid_owner_name_input()
@@ -307,11 +298,10 @@ def get_new_input(index_input):
     else:
         print("Invalid input. Please enter 1, 2, or 3 without spaces.")
 
-    
+
 def select_zip_code_list():
     """
     Displays a list of zip codes and prompts the user to select one.
-
     """
     zip_codes = [
         "77001", "77002", "77003", "77004",
@@ -329,20 +319,19 @@ def select_zip_code_list():
             if " " in user_input:
                 print("Invalid input. Spaces are not allowed. Please enter a valid number.")
                 continue
-            user_choice = int(user_input) 
+            user_choice = int(user_input)
 
             if 1 <= user_choice <= 10:
                 return zip_codes[user_choice - 1]
             else:
                 print("Invalid choice. Please enter a number between 1 and 10.")
-#https://www.digitalocean.com/community/tutorials/python-valueerror-exception-handling-examples
         except ValueError:
             print("Invalid input. Please enter a valid number between 1 and 10.")
+
 
 def display_restaurant_types_list():
     """
     Displays a list of restaurant types and prompts the user to select one.
-
     """
     restaurant_types = [
         "Fast Food Chains",
@@ -369,14 +358,14 @@ def display_restaurant_types_list():
     while True:
         try:
             user_choice = input("Enter (1-15) for desired restaurant type:/n ")
-            
+
             # Check for spaces and ask user to enter again if spaces are present
             if " " in user_choice:
                 print("Invalid input. Spaces are not allowed. Please enter a valid number.")
                 continue
-            
+
             user_choice = int(user_choice)
-            
+
             if 1 <= user_choice <= 15:
                 return restaurant_types[user_choice - 1]
             else:
@@ -387,9 +376,7 @@ def display_restaurant_types_list():
 
 def edit_restaurants():
     """
-    This function edits data in
-    survey_q gsheet based on user input.
-
+    This function edits data in survey_q gsheet based on user input.
     """
     credentials = Credentials.from_service_account_file(
         'creds.json', scopes=SCOPE)
@@ -424,12 +411,12 @@ def edit_restaurants():
     display_sheet_data()
     print("Exiting to Menu.")
 
-
 # https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+
+
 if __name__ == "__main__":
     """
-    Executes the main logic of the script
-    when run as the main program.
+    Executes the main logic of the script when run as the main program.
     Initializes variables.
     Enters an infinite loop displaying the program menu.
     Calls appropriate functions based on the user's menu selection.
@@ -449,5 +436,3 @@ if __name__ == "__main__":
             quitting = True
 
     print("Exiting the program.")
-
-    
