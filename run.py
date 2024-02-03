@@ -35,6 +35,32 @@ def display_sheet_data():
         print(tabulate([row], tablefmt="fancy_grid"))
 
 
+def display_sheet_rows(row_indices):
+    """
+    Display rows in the worksheet based on their indices.
+
+    """
+    credentials = Credentials.from_service_account_file(
+        'creds.json', scopes=SCOPE)
+    gc = gspread.authorize(credentials)
+    spreadsheet = gc.open('survey_q')
+    worksheet = spreadsheet.get_worksheet(0)
+    values = worksheet.get_all_values()
+
+    for row_index in row_indices:
+        print(f"Row {row_index}: {values[row_index - 1]}")
+
+def find_rows_by_input(worksheet, search_value):
+    """
+    Find all rows in a worksheet containing the specified value.
+
+    """
+    values = worksheet.get_all_values()
+    matched_rows = [index + 1 for index, row
+    in enumerate(values) if search_value in row]
+    return matched_rows
+
+
 def edit_sheet_data(row_index, column_index, new_value):
     """
     This function edits the data in the 
