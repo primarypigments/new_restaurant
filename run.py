@@ -365,6 +365,51 @@ def select_zip_code_list():
         except ValueError:
             print("Invalid input. Please enter a valid number between 1 and 10.")
 
+def display_restaurant_types_list():
+    """
+    Displays a list of restaurant types and prompts the user to select one.
+
+    """
+    restaurant_types = [
+        "Fast Food Chains",
+        "Casual Dining",
+        "Pizza Places",
+        "Coffee Shops",
+        "Steakhouses",
+        "Seafood",
+        "Mexican",
+        "Italian",
+        "Asian Cuisine",
+        "Barbecue Joints",
+        "Diners",
+        "Food Trucks",
+        "Buffet",
+        "Brewpubs",
+        "Vegetarian and Vegan"
+    ]
+
+    print("Select a Restaurant Type:")
+    for index, restaurant_type in enumerate(restaurant_types, start=1):
+        print(f"{index}. {restaurant_type}")
+
+    while True:
+        try:
+            user_choice = input("Enter (1-15) for desired restaurant type:/n ")
+            
+            # Check for spaces and ask user to enter again if spaces are present
+            if " " in user_choice:
+                print("Invalid input. Spaces are not allowed. Please enter a valid number.")
+                continue
+            
+            user_choice = int(user_choice)
+            
+            if 1 <= user_choice <= 15:
+                return restaurant_types[user_choice - 1]
+            else:
+                print("Invalid choice. Please enter a number between 1 and 15.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
 
 def edit_restaurants():
     """
