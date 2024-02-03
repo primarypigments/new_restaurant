@@ -75,13 +75,13 @@ def edit_sheet_data(row_index, column_index, new_value):
     spreadsheet = gc.open('survey_q')
     worksheet = spreadsheet.get_worksheet(0)
 
+    column_index = int(column_index)
+
     # Update the value at the specified cell
     # https://stackoverflow.com/questions/59701452/how-to-update-cells-in-a-google-spreadsheet-with-python-s-gspread-wks-update-cel
     worksheet.update_cell(row_index, column_index, new_value)
 
 # https://pypi.org/project/simple-term-menu/ used for following code
-
-
 def show_program_menu():
     """
     This function displays a menu using the TerminalMenu
