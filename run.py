@@ -428,30 +428,26 @@ def edit_restaurants():
 # https://stackoverflow.com/questions/419163/what-does-if-name-main-do
 if __name__ == "__main__":
     """
-    Executes the main logic of the script 
+    Executes the main logic of the script
     when run as the main program.
     Initializes variables.
     Enters an infinite loop displaying the program menu.
     Calls appropriate functions based on the user's menu selection.
-    
-    """ 
-    selected_option = None
+    """
     quitting = False
 
-while not quitting:
-    while True:
+    while not quitting:
         selected_option = show_program_menu()
 
-        if selected_option == 1:
+        if selected_option == 0:
             add_new_restaurant()
-        elif selected_option == 0:
+        elif selected_option == 1:
             view_statistics()
-        elif selected_option == 3:
-            quitting = True
         elif selected_option == 2:
             edit_restaurants()
-        
-            break
+        elif selected_option == 3:
+            quitting = True
 
-    exits()
     print("Exiting the program.")
+
+    
