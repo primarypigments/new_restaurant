@@ -375,11 +375,11 @@ def display_restaurant_types_list():
                 continue
 
             # Check for spaces and ask user to enter again if spaces are present
-            if " " in user_choice:
+            if " " in owner_choice:
                 print("Invalid input. Spaces are not allowed. Please enter a valid number.")
                 continue
 
-            owner_choice = int(user_choice)
+            owner_choice = int(owner_choice)
 
             if 1 <= owner_choice <= 15:
                 return restaurant_types[owner_choice - 1]
