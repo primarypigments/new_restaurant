@@ -334,6 +334,16 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
     # https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column
     spreadsheet.append_row([owner_name.lower(), rest_type, zip_code])
 
+
+def get_column_index_input():
+    """
+    Prompt the user for input to select a column index.
+    """
+    index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n")
+    index_input = index_input.replace(" ", "")  # Remove spaces
+    return index_input
+
+
 def select_zip_code_list():
     """
     Displays a list of zip codes and prompts the user to select one.
