@@ -370,7 +370,7 @@ def display_restaurant_types_list():
         try:
             owner_choice = input("Enter (1-15) for desired restaurant type:/n ")
 
-            if owner_input.startswith("0"):
+            if owner_choice.startswith("0"):
                 print("Invalid input. Cannot start with 0. Please enter a valid number.")
                 continue
 
