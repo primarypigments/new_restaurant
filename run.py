@@ -107,7 +107,7 @@ def view_statistics():
 
     if owner_name in valid_owner_names:
         print(f"Owner's Name '{owner_name}' Welcome Back.")
-        zip_code = get_zip_code_input()
+        zip_code = select_zip_code_list()
         print(f"Zip Code: {zip_code}")
 
         # Load data from Gsheets
@@ -137,7 +137,7 @@ def view_statistics():
             row_index = all_rows.index(filtered_rows[0]) + 1
 
             # Get user input for the restaurant type
-            column_name_input = get_food_type_input()
+            column_name_input = display_restaurant_types_list()
 
             # Get the header row (assuming it's the first row in the sheet)
             header_row = worksheet.row_values(1)
@@ -177,49 +177,17 @@ def view_statistics():
         print("Viewing Statistics - Not implemented yet.")
 
 
-def get_food_type_input():
-    """
-    This function retrieves valid food 
-    type input from the user.
-    """ 
-    # Function to get valid food type input from the user
-    while True:
-        rest_type_input = input("Enter Food Type: \n").strip()
-
-        # Validation code for food type input
-        if any(d.isdigit() or not d.isalnum() for d in rest_type_input.lower()
-        ) or len(rest_type_input.strip()) == 0:
-            print("Invalid input. Please enter a valid Food Type.")
-        else:
-            return rest_type_input
-
-
-def get_zip_code_input():
-    """
-    This function etrieves valid 
-    zip code input from the user.
-    """ 
-    # Function to get valid zip code input from the user
-    while True:
-        zip_code = input("Enter Zip Code: \n").strip()
-
-        # Validation code for zip code input
-        if len(zip_code.strip()) == 0 or not zip_code.isdigit():
-            print("Invalid input. Please enter a valid Zip Code.")
-        else:
-            return zip_code
-
-
 def add_new_restaurant():
     """
     This function adds a new restaurant to the Gsheet.
     Collects input for owner name, restaurant type, and zip code.
     Prints the collected information.
     Appends the information to the Gsheet.
-    """ 
+
+    """
     owner_name = get_valid_owner_name_input()
-    rest_type = get_valid_rest_type_input()
-    zip_code = get_valid_zip_code_input()
+    rest_type = display_restaurant_types_list()
+    zip_code = select_zip_code_list()
 
     print("Owner's Name:", owner_name)
     print("Restaurant Type:", rest_type)
@@ -265,55 +233,6 @@ def get_valid_owner_name_input():
         return owner_input
     else:
         print("Invalid Owner's Name. Please try again.")
-
-
-def validate_rest_type_input(rest_type_input):
-    # https://www.w3schools.com/python/ref_string_isdigit.asp
-    # https://www.w3schools.com/python/ref_string_isalnum.asp
-    # When inputting your restaurant, no excess space, numbers, 
-    # special characters (e.g., ()/&!)
-    if any(d.isdigit() or not d.isalnum() for d in rest_type_input):
-        return False
-    # .strip()) == 0: credited to Mentor
-    if len(rest_type_input.strip()) == 0:
-        return False
-
-    return True
-
-
-def get_valid_rest_type_input():
-    while True:
-        rest_type_input = input("Enter Restaurant Type: \n")
-        rest_type_input = rest_type_input.strip()
-
-        if validate_rest_type_input(rest_type_input):
-            return rest_type_input
-        else:
-            print("Invalid Restaurant Type. Please try again.")
-
-
-def validate_zip_code(zip_code):
-    """
-    This function validates zip code input. 
-    owner name input from the user. 
-    
-    """ 
-    # Check if the zip code is not empty
-    if len(zip_code.strip()) == 0:
-        return False
-
-    return True
-
-
-def get_valid_zip_code_input():
-    while True:
-        zip_code_input = input("Enter Zip Code: \n")
-        zip_code_input = zip_code_input.strip()
-
-        if validate_zip_code(zip_code_input):
-            return zip_code_input
-        else:
-            print("Invalid input. Please enter a valid Zip Code.")
 
 
 # https://spreadsheetpoint.com/python-google-sheets/
