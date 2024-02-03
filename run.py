@@ -334,6 +334,37 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
     # https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column
     spreadsheet.append_row([owner_name.lower(), rest_type, zip_code])
 
+def select_zip_code_list():
+    """
+    Displays a list of zip codes and prompts the user to select one.
+
+    """
+    zip_codes = [
+        "77001", "77002", "77003", "77004",
+        "77005", "77006", "77007", "77008",
+        "77009", "77010"
+    ]
+
+    print("Select a Zip Code:")
+    for index, zip_code in enumerate(zip_codes, start=1):
+        print(f"{index}. {zip_code}")
+
+    while True:
+        try:
+            user_input = input("Enter the Zip Code of your choice (1-10): ")
+            if " " in user_input:
+                print("Invalid input. Spaces are not allowed. Please enter a valid number.")
+                continue
+            user_choice = int(user_input) 
+
+            if 1 <= user_choice <= 10:
+                return zip_codes[user_choice - 1]
+            else:
+                print("Invalid choice. Please enter a number between 1 and 10.")
+#https://www.digitalocean.com/community/tutorials/python-valueerror-exception-handling-examples
+        except ValueError:
+            print("Invalid input. Please enter a valid number between 1 and 10.")
+
 
 def edit_restaurants():
     """
