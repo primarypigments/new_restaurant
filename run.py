@@ -315,8 +315,12 @@ def select_zip_code_list():
 
     while True:
         try:
-            user_input = input("Enter the Zip Code of your choice (1-10): ")
-            if " " in user_input:
+
+            # Check if input starts with 0
+            if owner_input.startswith("0"):
+                print("Invalid input. Cannot start with 0. Please enter a valid number.")
+                continue
+
                 print("Invalid input. Spaces are not allowed. Please enter a valid number.")
                 continue
             user_choice = int(user_input)
@@ -357,7 +361,9 @@ def display_restaurant_types_list():
 
     while True:
         try:
-            user_choice = input("Enter (1-15) for desired restaurant type:/n ")
+            if owner_input.startswith("0"):
+                print("Invalid input. Cannot start with 0. Please enter a valid number.")
+                continue
 
             # Check for spaces and ask user to enter again if spaces are present
             if " " in user_choice:
