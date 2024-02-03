@@ -413,7 +413,7 @@ def display_restaurant_types_list():
 
 def edit_restaurants():
     """
-    This function edits and deletes data in 
+    This function edits data in
     survey_q gsheet based on user input.
 
     """
@@ -421,27 +421,34 @@ def edit_restaurants():
         'creds.json', scopes=SCOPE)
     gc = gspread.authorize(credentials)
     spreadsheet = gc.open('survey_q')
-    spreadsheet = spreadsheet.get_worksheet(0)
+    worksheet = spreadsheet.get_worksheet(0)
     display_sheet_data()
 
-     # Get user input for editing
-     # https://discuss.python.org/t/im-new-to-python-convention-question/29680
-    row_index = int(input("Enter the row index to edit: \n"))
-    column_index = int(input("Enter the column index to edit: \n"))
-    new_value = input("Enter the new value: \n")
+    # Get user input for editing
+    search_value = get_valid_owner_name_input()
 
-    edit_sheet_data(row_index, column_index, new_value)
+    # Find all rows with the specified input in any column
+    matched_rows = find_rows_by_input(worksheet, search_value)
+
+    if not matched_rows:
+        print(f"No rows found with the value '{search_value}'. Exiting.")
+        return
+
+    print(f"Found {len(matched_rows)} row(s) with the value '{search_value}'.")
+
+    # Optionally, you can display the matched rows
+    display_sheet_rows(matched_rows)
+
+    # Get user input for editing
+    column_index = get_column_index_input()
+    new_value = get_new_input(column_index)
+
+    # Update the matching rows with the new value
+    for row_index in matched_rows:
+        edit_sheet_data(row_index, column_index, new_value)
+
     display_sheet_data()
-
-     # Get user input for deletion
-    row_index_to_delete = int(input("Enter the row index to delete: \n"))
-    delete_row(row_index_to_delete)
-    display_sheet_data()
-
-
-def exits():
-    
-    print("Exiting the program.")
+    print("Exiting to Menu.")
 
 
 # https://stackoverflow.com/questions/419163/what-does-if-name-main-do
