@@ -344,6 +344,25 @@ def get_column_index_input():
     return index_input
 
 
+def get_new_input(index_input):
+    """
+    Takes a column index as input and 
+    returns corresponding user input based on the index.
+    
+    """
+    if index_input == '1':
+        new_owner_name = get_valid_owner_name_input()
+        return new_owner_name
+    elif index_input == '2':
+        new_restaurant_type = display_restaurant_types_list()
+        return new_restaurant_type
+    elif index_input == '3':
+        new_zip_code = select_zip_code_list()
+        return new_zip_code
+    else:
+        print("Invalid input. Please enter 1, 2, or 3 without spaces.")
+
+    
 def select_zip_code_list():
     """
     Displays a list of zip codes and prompts the user to select one.
