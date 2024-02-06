@@ -86,6 +86,7 @@ def edit_sheet_data(row_index, column_index, new_value):
 
 # https://pypi.org/project/simple-term-menu/ used for following code
 def show_program_menu():
+    print("New Users please Add New Restaurant first.")
     """
     This function displays a menu using the TerminalMenu
     class from the simple_term_menu library.
@@ -131,6 +132,7 @@ def load_valid_values(sheet_name, column_index):
 
 
 def view_statistics():
+    print("Please input your 'Owner Name' from Add New Restaurants.")
     """
     This function allows the user to view information about the number of
     restaurants of a specific type in a given zip code.
