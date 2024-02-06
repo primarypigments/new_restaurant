@@ -285,7 +285,8 @@ def get_column_index_input():
         if not any(char.isspace() for char in index_input):
             return index_input
         else:
-            print("Spaces or are not allowed. Please enter 1, 2, or 3.")
+            print("Spaces are not allowed. Please enter 1, 2, or 3.")
+
 
 def get_new_input(index_input):
     """
