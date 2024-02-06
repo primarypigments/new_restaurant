@@ -256,8 +256,6 @@ def get_valid_owner_name_input():
     else:
         print("Invalid Owner's Name. Please try again.")
 
-# https://spreadsheetpoint.com/python-google-sheets/
-
 
 def export_to_gsheets(owner_name, rest_type, zip_code):
     """
@@ -281,10 +279,13 @@ def get_column_index_input():
     """
     Prompt the user for input to select a column index.
     """
-    index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n")
-    index_input = index_input.replace(" ", "")  # Remove spaces
-    return index_input
-
+    while True:
+        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n")
+        
+        if not any(char.isspace() for char in index_input):
+            return index_input
+        else:
+            print("Spaces or are not allowed. Please enter 1, 2, or 3.")
 
 def get_new_input(index_input):
     """
@@ -379,7 +380,6 @@ def display_restaurant_types_list():
                 print("Invalid input. Cannot start with 0. Please enter a valid number.")
                 continue
 
-            # Check for spaces and ask user to enter again if spaces are present
             if " " in owner_choice:
                 print("Invalid input. Spaces are not allowed. Please enter a valid number.")
                 continue
