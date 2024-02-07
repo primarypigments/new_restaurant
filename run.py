@@ -200,8 +200,8 @@ def view_statistics():
                             # Print information about the number of restaurants
                             # in the specified zip code
                             print(f"Number of {column_name_input} restaurants")
-                            print(" '{cell_at_intersection}'")
-                            print("in zip code {zip_code}")
+                            print(f" '{cell_at_intersection}'")
+                            print(f"in zip code {zip_code}")
                             break
             except ValueError:
                 print(f"Column '{column_name_input}'") 
