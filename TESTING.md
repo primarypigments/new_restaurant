@@ -80,6 +80,12 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
     - To fix this, I separated the "print" into multiple "print" lines.
 
+Python `AttributeError: 'NoneType' object has no attribute 'lower'` 
+
+    ![screenshot](documentation/bugs/nonetype_bug.png)
+
+    - To fix this, I made sure there are no extra spaces in the user's input, validate the owner's name, and ensure it's converted to lowercase only when there's a valid input.
+    
 ## Unfixed Bugs
 
 🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
