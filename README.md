@@ -57,6 +57,19 @@ In this section, list all of your user stories for the project.
 
 ![screenshot](documentation/features/features_3_zlist.png)
 
+ **Add New Restaurant**
+
+    - This gives the User the ablitly to gain access to the rest of the program and to update the database.
+
+![screenshot](documentation/features/features_4_add.png)
+
+**View Statistics**
+
+    - This gives the User the ablitly to see where to invest or build a new resturant.
+
+![screenshot](documentation/features/features_5_view.png)
+
+
 ### Future Features
 
 - Wider Range of Zip Codes
