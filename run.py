@@ -86,13 +86,13 @@ def edit_sheet_data(row_index, column_index, new_value):
     
 
 def show_program_menu():
-    print("New Users please Add New Restaurant first.")
+
     """
     This function displays a menu using the TerminalMenu
     class from the simple_term_menu library.
     """
-    program_menu_title = "Welcome to 'Where To Restaurant'." 
-    "Select an option:"
+    program_menu_title = ["Welcome to 'Where To Restaurant'",
+    "New users Add New Restaurant First"]
     program_menu_items = ["Add New Restaurant",
     "View Statistics", "Edit Restaurants", "Exit Program"]
     program_menu_cursor = " -> "
