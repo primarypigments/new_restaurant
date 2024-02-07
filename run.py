@@ -253,15 +253,13 @@ def get_valid_owner_name_input():
     """
     This function retrieves valid owner name input from the user.
     """
-    owner_input = input("Enter owner's name: \n")
-    while not owner_input or not all((o.isalpha() or (o.isspace() and owner_input.count(o) == 1)) for o in owner_input):
+    owner_input = input("Enter owner's name: \n").strip()
+    while not owner_input or not valid_owner_name_input(owner_input):
         print("Invalid Owner's Name. Please try again.")
         owner_input = input("Enter owner's name: \n").strip()
 
-        # if valid_owner_name_input(owner_input):
-        return owner_input.lower()  # Convert to lowercase
-        # else:
-        #     print("Invalid Owner's Name. Please try again.")
+    return valid_owner_name_input(owner_input).lower()  
+
 
 
 def export_to_gsheets(owner_name, rest_type, zip_code):
