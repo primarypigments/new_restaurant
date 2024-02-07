@@ -78,20 +78,21 @@ def edit_sheet_data(row_index, column_index, new_value):
     column_index = int(column_index)
 
     # Update the value at the specified cell
-    # https://stackoverflow.com/questions/59701452/how-to-update-cells-in-a-google-spreadsheet-with-python-s-gspread-wks-update-cel
+    
     worksheet.update_cell(row_index, column_index, new_value)
 
-    print(f"Updating cell at ({row_index}, {column_index}) with value: {new_value}") 
+    print(f"Updating cell at ({row_index},")
+    print("{column_index}) with value: {new_value}") 
     
 
-# https://pypi.org/project/simple-term-menu/ used for following code
 def show_program_menu():
     print("New Users please Add New Restaurant first.")
     """
     This function displays a menu using the TerminalMenu
     class from the simple_term_menu library.
     """
-    program_menu_title = "Select an option:"
+    program_menu_title = "Welcome to 'Where To Restaurant'." 
+    "Select an option:"
     program_menu_items = ["Add New Restaurant",
     "View Statistics", "Edit Restaurants", "Exit Program"]
     program_menu_cursor = " -> "
@@ -198,13 +199,17 @@ def view_statistics():
                             # Adjust to 0-based index
                             # Print information about the number of restaurants
                             # in the specified zip code
-                            print(
-                                f"Number of {column_name_input} restaurants '{cell_at_intersection}' in zip code {zip_code}")
+                            print(f"Number of {column_name_input} restaurants")
+                            print(" '{cell_at_intersection}'")
+                            print("in zip code {zip_code}")
                             break
             except ValueError:
-                print(f"Column '{column_name_input}' not found in the header row.")
+                print(f"Column '{column_name_input}'") 
+                print("not found in the header row.")
     else:
-        print(f"Owner's Name '{owner_name}' does not exist. Returning to the main menu, and add a new restaurant.")
+        print(f"Owner's Name '{owner_name}'") 
+        print("does not exist.") 
+        print("Returning to the main menu, and add a new restaurant.")
         print("Viewing Statistics - Not implemented yet.")
 
 
@@ -273,7 +278,6 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
     spreadsheet = gc.open('survey_q')
     spreadsheet = spreadsheet.get_worksheet(0)
     # Append the values to Google Sheets
-    # https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column
     spreadsheet.append_row([owner_name.lower(), rest_type, zip_code])
 
 
@@ -298,7 +302,8 @@ def get_new_input(index_input):
     valid_indices = ['1', '2', '3']
 
     while index_input not in valid_indices or index_input.startswith("0"):
-        print("Invalid input. Please enter 1, 2, or 3 without spaces and not starting with 0.")
+        print("Invalid input. Please enter 1, 2, or 3")
+        print("without spaces and not starting with 0.")
         index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n")
         index_input = index_input.replace(" ", "")
 
@@ -332,11 +337,13 @@ def select_zip_code_list():
 
             # Check if input starts with 0
             if owner_input.startswith("0"):
-                print("Invalid input. Cannot start with 0. Please enter a valid number.")
+                print("Invalid input. Cannot start with 0.") 
+                print("Please enter a valid number.")
                 continue
 
             if " " in owner_input:
-                print("Invalid input. Spaces are not allowed. Please enter a valid number.")
+                print("Invalid input. Spaces are not allowed.") 
+                print("Please enter a valid number.")
                 continue
 
             owner_choice = int(owner_input)
@@ -344,9 +351,10 @@ def select_zip_code_list():
             if 1 <= owner_choice <= 10:
                 return zip_codes[owner_choice - 1]
             else:
-                print("Invalid choice. Please enter a number between 1 and 10.")
+                print(" Please enter a number between 1 and 10.")
         except ValueError:
-            print("Invalid input. Please enter a valid number between 1 and 10.")
+            print("Invalid input.") 
+            print("Please enter a valid number between 1 and 10.")
 
 
 def display_restaurant_types_list():
@@ -377,14 +385,16 @@ def display_restaurant_types_list():
 
     while True:
         try:
-            owner_choice = input("Enter (1-15) for desired restaurant type:/n ")
+            owner_choice = input("Enter 1-15 for desired restaurant type:/n ")
 
             if owner_choice.startswith("0"):
-                print("Invalid input. Cannot start with 0. Please enter a valid number.")
+                print("Invalid input.") 
+                print("Cannot start with 0. Please enter a valid number.")
                 continue
 
             if " " in owner_choice:
-                print("Invalid input. Spaces are not allowed. Please enter a valid number.")
+                print("Invalid input. Spaces are not allowed.")
+                print("Please enter a valid number.")
                 continue
 
             owner_choice = int(owner_choice)
@@ -392,7 +402,8 @@ def display_restaurant_types_list():
             if 1 <= owner_choice <= 15:
                 return restaurant_types[owner_choice - 1]
             else:
-                print("Invalid choice. Please enter a number between 1 and 15.")
+                print("Invalid choice.") 
+                print("Please enter a number between 1 and 15.")
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
