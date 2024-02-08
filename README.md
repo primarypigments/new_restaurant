@@ -106,8 +106,8 @@ Below is the flowchart of the main process of this Python program. It shows the 
 
 The primary functions used on this application are:
 
-- `exits()`
-    - Purpose: Prints a message indicating program exit.
+- `clear()`
+    - Purpose: Clears the terminal to not clog up the screen.
 - `display_sheet_data()`
     - Purpose: Displays the data from the Gsheet.
 - `display_sheet_rows(row_indices)`
@@ -133,7 +133,7 @@ The primary functions used on this application are:
 - `get_column_index_input()`
     -  Purpose: Prompts the user for input to select a column index.
 - `get_new_input(index_input)`
-    -Purpose: Takes a column index as input and returns corresponding user input based on the index.
+    - Purpose: Takes a column index as input and returns corresponding user input based on the index.
 - `select_zip_code_list()`
     - Purpose: Displays a list of zip codes and prompts the user to select one.
 - `display_restaurant_types_list()`
@@ -149,6 +149,8 @@ The primary functions used on this application are:
 
 I've used the following Python packages and/or external imported packages.
 
+- `os`: used with the `clear()` function
+- `time`: used to add minor delays
 - `gspread`: used with the Google Sheets API
 - `google.oauth2.service_account`: used for the Google Sheets API credentials
 - `pprint`: used for debugging
