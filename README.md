@@ -1,6 +1,6 @@
 
 
-The year is 1990 and the future of restaurant location searching is here. With "Where To Restaurants" you will be able to find gaps in the restaurant market to help you better invest into the correct type of restaurant into right location. We have created a database of total restaurant types within 10 zip code. We give investors or restaurant owners the chance to access this information by adding themselves to our system.  
+The year is 1990 and the future of restaurant location searching is here. With "Where To Restaurants" you will be able to find gaps in the restaurant market to help you better invest into the correct type of restaurant into the right location. We have created a database of total restaurant types within 10 zip codes. We give investors or restaurant owners the chance to access this information by adding themselves to our system. By using our system you will save money and time from preforming research when looking for the right location to invest in a restaurant.
 
 https://ui.dev/amiresponsive?url=https://wheretorestaurant-3bd31d04f4de.herokuapp.com
 
@@ -10,30 +10,20 @@ https://ui.dev/amiresponsive?url=https://wheretorestaurant-3bd31d04f4de.herokuap
 
 I used Simple Term Menu to Give the menu color and style. For the Cursor I used purple. For the highting of the menu section
 I used yellow. I made sure the user has an uncomplicated time using this app. by creating a list for the inputs.
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ## User Stories
-
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-In this section, list all of your user stories for the project.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ### New Site Users
 
 - As a new site user, I would like to add my restaurnt to the database, so that I can have access to the statistic database.
 - As a new site user, I would like to edit the owner name, because I bought a restaurant.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
+- As a new site user, I would like to run several searches in the database, so that I can find gaps in the market.
 
 ### Returning Site Users
 
 - As a returning site user, I would like to edit my restuarant, so that I can change the type of restaurant.
 - As a returning site user, I would like to view statistics, so that I can see where to invest into a new resturant.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a returning site user, I would like to add a new restaurant, becuase I bought a new restaurant.
 
 ## Features
 
@@ -68,6 +58,12 @@ In this section, list all of your user stories for the project.
     - This gives the User the ablitly to see where to invest or build a new resturant.
 
 ![screenshot](documentation/features/features_5_view.png)
+
+**Edit Restauarnts**
+
+    - This gives the User the ablitly change owner name, zipcode, restaurant type.
+
+![screenshot](documentation/features/features_6_edit.png)
 
 
 ### Future Features
