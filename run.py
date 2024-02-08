@@ -135,15 +135,17 @@ def view_statistics():
     restaurants of a specific type in a given zip code.
     """
     owner_name = get_valid_owner_name_input()
+    print(f"\nSearching database for {owner_name}")
     valid_owner_names = load_valid_values('survey_q', 1)
     time.sleep(1)
     clear()
 
     if owner_name in valid_owner_names:
-        print(f"'{owner_name}' Welcome Back.")
+        print(f"'{owner_name}' Welcome Back!\n")
         zip_code = select_zip_code_list()
         clear()
         print(f"Zip Code: {zip_code}")
+        print(f"Searching database for {zip_code}")
 
         sheet_name = "stat"
         zip_code_column_index = 0
@@ -198,6 +200,12 @@ def view_statistics():
                             # Print information about the number of restaurants
                             # in the specified zip code
                             clear()
+                            print(
+                                f"There are {cell_at_intersection} "
+                                f"{column_name_input} restaurants in the "
+                                f"{zip_code} zip code found."
+                            )
+                            input("\nPress ENTER to proceed back to the menu.")
                             clear()
                             break
             except ValueError:
@@ -225,13 +233,17 @@ def add_new_restaurant():
     zip_code = select_zip_code_list()
 
     clear()
+    print("Please wait, adding restaurant to database")
+    export_to_gsheets(owner_name, rest_type, zip_code)
     time.sleep(1)
     clear()
+    print("Restaurant added successfully!\n")
 
     print("Owner's Name:", owner_name)
     print("Restaurant Type:", rest_type)
     print("Zip Code:", zip_code)
 
+    return_to_menu = input("\nPress Enter to return to the main menu.\n")
     clear()
 
 
@@ -278,6 +290,8 @@ def get_column_index_input():
     """
     Prompt the user for input to select a column index.
     """
+    print("\nEditing a column will alter all rows above.\n")
+    print("Which column would you like to edit? 1 / 2 / 3\n")
     while True:
         index_input = input("1) New Owner\n2) Restaurant Type\n3) Zip Code\n")
         clear()
@@ -379,7 +393,7 @@ def display_restaurant_types_list():
 
     while True:
         try:
-            owner_choice = input("Enter 1-15 for desired restaurant type:/n ")
+            owner_choice = input("Enter 1-15 for desired restaurant type:\n ")
 
             if owner_choice.startswith("0"):
                 print("Invalid input.")
@@ -406,6 +420,7 @@ def edit_restaurants():
     """
     This function edits data in survey_q gsheet based on user input.
     """
+    print("Retrieving Database")
     credentials = Credentials.from_service_account_file(
         'creds.json', scopes=SCOPE)
     gc = gspread.authorize(credentials)
@@ -419,7 +434,7 @@ def edit_restaurants():
     matched_rows = find_rows_by_input(worksheet, search_value)
 
     if not matched_rows:
-        print(f"No rows found with the value '{search_value}'. Exiting.")
+        print(f"No rows found with the value '{search_value}'. Exiting.\n")
         return
 
     print(f"Found {len(matched_rows)} row(s) with the value '{search_value}'.")
@@ -463,4 +478,5 @@ if __name__ == "__main__":
         elif selected_option == 3:
             quitting = True
 
+    print("Thanks for using 'Where To Restaurant'!")
     print("Exiting the program.")
