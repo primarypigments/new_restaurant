@@ -57,8 +57,7 @@ def find_rows_by_input(worksheet, search_value):
     Find all rows in a worksheet containing the specified value.
     """
     values = worksheet.get_all_values()
-    matched_rows = [index + 1 for index, row in enumerate(values) 
-    if search_value in row]
+    matched_rows = [index + 1 for index, row in enumerate(values) if search_value in row]  # noqa
     return matched_rows
 
 
@@ -75,12 +74,12 @@ def edit_sheet_data(row_index, column_index, new_value):
     column_index = int(column_index)
 
     # Update the value at the specified cell
-    
+
     worksheet.update_cell(row_index, column_index, new_value)
 
     print(f"Updating cell at ({row_index},")
-    print("{column_index}) with value: {new_value}") 
-    
+    print("{column_index}) with value: {new_value}")
+
 
 def show_program_menu():
 
@@ -88,10 +87,8 @@ def show_program_menu():
     This function displays a menu using the TerminalMenu
     class from the simple_term_menu library.
     """
-    program_menu_title = ["Welcome to 'Where To Restaurant'",
-    "New users Add New Restaurant First"]
-    program_menu_items = ["Add New Restaurant",
-    "View Statistics", "Edit Restaurants", "Exit Program"]
+    program_menu_title = ["Welcome to 'Where To Restaurant'", "New users Add New Restaurant First"]  # noqa
+    program_menu_items = ["Add New Restaurant", "View Statistics", "Edit Restaurants", "Exit Program"]  # noqa
     program_menu_cursor = " -> "
     program_menu_cursor_style = ("fg_purple", "bold")
     program_menu_style = ("bg_yellow", "fg_gray")
@@ -112,7 +109,7 @@ def load_valid_values(sheet_name, column_index):
     """
     This function loads valid values from a specified Google Sheets column.
     """
-    
+
     credentials = Credentials.from_service_account_file(
         'creds.json', scopes=SCOPE
     )
@@ -121,7 +118,6 @@ def load_valid_values(sheet_name, column_index):
     spreadsheet = gc.open(sheet_name)
     worksheet = spreadsheet.get_worksheet(0)
 
-    
     valid_values = worksheet.col_values(column_index)
     return valid_values
 
@@ -194,11 +190,11 @@ def view_statistics():
                             print(f"in zip code {zip_code}")
                             break
             except ValueError:
-                print(f"Column '{column_name_input}'") 
+                print(f"Column '{column_name_input}'")
                 print("not found in the header row.")
     else:
-        print(f"Owner's Name '{owner_name}'") 
-        print("does not exist.") 
+        print(f"Owner's Name '{owner_name}'")
+        print("does not exist.")
         print("Returning to the main menu, and add a new restaurant.")
         print("Viewing Statistics - Not implemented yet.")
 
@@ -247,8 +243,7 @@ def get_valid_owner_name_input():
         print("Invalid Owner's Name. Please try again.")
         owner_input = input("Enter owner's name: \n").strip()
 
-    return valid_owner_name_input(owner_input).lower()  
-
+    return valid_owner_name_input(owner_input).lower()
 
 
 def export_to_gsheets(owner_name, rest_type, zip_code):
@@ -271,7 +266,7 @@ def get_column_index_input():
     """
     while True:
         index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n")
-        
+
         if not any(char.isspace() for char in index_input):
             return index_input
         else:
@@ -288,7 +283,7 @@ def get_new_input(index_input):
     while index_input not in valid_indices or index_input.startswith("0"):
         print("Invalid input. Please enter 1, 2, or 3")
         print("without spaces and not starting with 0.")
-        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n").strip()
+        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n").strip()  # noqa
         index_input = index_input.replace(" ", "")
 
     if index_input == '1':
@@ -300,6 +295,7 @@ def get_new_input(index_input):
     elif index_input == '3':
         new_zip_code = select_zip_code_list()
         return new_zip_code
+
 
 def select_zip_code_list():
     """
@@ -320,12 +316,12 @@ def select_zip_code_list():
             owner_input = input("Enter the Zip Code of your choice (1-10): ")
 
             if owner_input.startswith("0"):
-                print("Invalid input. Cannot start with 0.") 
+                print("Invalid input. Cannot start with 0.")
                 print("Please enter a valid number.")
                 continue
 
             if " " in owner_input:
-                print("Invalid input. Spaces are not allowed.") 
+                print("Invalid input. Spaces are not allowed.")
                 print("Please enter a valid number.")
                 continue
 
@@ -336,7 +332,7 @@ def select_zip_code_list():
             else:
                 print(" Please enter a number between 1 and 10.")
         except ValueError:
-            print("Invalid input.") 
+            print("Invalid input.")
             print("Please enter a valid number between 1 and 10.")
 
 
@@ -371,7 +367,7 @@ def display_restaurant_types_list():
             owner_choice = input("Enter 1-15 for desired restaurant type:/n ")
 
             if owner_choice.startswith("0"):
-                print("Invalid input.") 
+                print("Invalid input.")
                 print("Cannot start with 0. Please enter a valid number.")
                 continue
 
@@ -385,7 +381,7 @@ def display_restaurant_types_list():
             if 1 <= owner_choice <= 15:
                 return restaurant_types[owner_choice - 1]
             else:
-                print("Invalid choice.") 
+                print("Invalid choice.")
                 print("Please enter a number between 1 and 15.")
         except ValueError:
             print("Invalid input. Please enter a valid number.")
