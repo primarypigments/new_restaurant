@@ -28,14 +28,11 @@ def display_sheet_data():
     spreadsheet = gc.open('survey_q')
     worksheet = spreadsheet.get_worksheet(0)
 
-    # Get all rows from the Gsheet
     all_rows = worksheet.get_all_values()
 
-    # Display the header row
     header_row = all_rows[0]
     print(tabulate([header_row], headers="firstrow", tablefmt="fancy_grid"))
 
-    # Display each row's data
     for row in all_rows[1:]:
         print(tabulate([row], tablefmt="fancy_grid"))
 
@@ -115,7 +112,7 @@ def load_valid_values(sheet_name, column_index):
     """
     This function loads valid values from a specified Google Sheets column.
     """
-    # Load existing data from Gsheets
+    
     credentials = Credentials.from_service_account_file(
         'creds.json', scopes=SCOPE
     )
@@ -124,12 +121,9 @@ def load_valid_values(sheet_name, column_index):
     spreadsheet = gc.open(sheet_name)
     worksheet = spreadsheet.get_worksheet(0)
 
-    # Get all values in the specified column
+    
     valid_values = worksheet.col_values(column_index)
     return valid_values
-
-# allowing the user to view information about the number of
-# restaurants of a specific type in a given zip code
 
 
 def view_statistics():
@@ -142,15 +136,13 @@ def view_statistics():
     valid_owner_names = load_valid_values('survey_q', 1)
 
     if owner_name in valid_owner_names:
-        print(f"Owner's Name '{owner_name}' Welcome Back.")
+        print(f"'{owner_name}' Welcome Back.")
         zip_code = select_zip_code_list()
         print(f"Zip Code: {zip_code}")
 
-        # Load data from Gsheets
         sheet_name = "stat"
         zip_code_column_index = 0
 
-        # Load existing data from Gsheets
         credentials = Credentials.from_service_account_file(
             'creds.json', scopes=SCOPE)
         gc = gspread.authorize(credentials)
@@ -158,15 +150,13 @@ def view_statistics():
         spreadsheet = gc.open(sheet_name)
         worksheet = spreadsheet.get_worksheet(0)
 
-        # Get all rows from the Gsheet
         all_rows = worksheet.get_all_values()
 
-        # Find the row index that matches the entered zip code
         filtered_rows = [
             row for row in all_rows if row[zip_code_column_index] == zip_code
         ]
         if not filtered_rows:
-            print(f"No data found for the entered zip code: {zip_code}")
+            print(f"Sorry no data found for the entered zip code: {zip_code}")
         else:
             # Calculate the row index (adding 1 because list indices start from
             # 0, but Gsheets row indices start from 1)
@@ -231,7 +221,6 @@ def add_new_restaurant():
     export_to_gsheets(owner_name, rest_type, zip_code)
     print("Restaurant added successfully!")
 
-    # Prompt to return to the main menu
     return_to_menu = input("Press Enter to return to the main menu.\n")
     return show_program_menu()
 
@@ -268,14 +257,11 @@ def export_to_gsheets(owner_name, rest_type, zip_code):
     Uses the gspread library to authenticate and
     append a new row to a Google Sheet.
     """
-    # # https://spreadsheetpoint.com/python-google-sheets/
     credentials = Credentials.from_service_account_file(
         'creds.json', scopes=SCOPE)
-    # https://snyk.io/advisor/python/gspread/functions/gspread.authorize
     gc = gspread.authorize(credentials)
     spreadsheet = gc.open('survey_q')
     spreadsheet = spreadsheet.get_worksheet(0)
-    # Append the values to Google Sheets
     spreadsheet.append_row([owner_name.lower(), rest_type, zip_code])
 
 
@@ -333,7 +319,6 @@ def select_zip_code_list():
         try:
             owner_input = input("Enter the Zip Code of your choice (1-10): ")
 
-            # Check if input starts with 0
             if owner_input.startswith("0"):
                 print("Invalid input. Cannot start with 0.") 
                 print("Please enter a valid number.")
@@ -417,10 +402,8 @@ def edit_restaurants():
     worksheet = spreadsheet.get_worksheet(0)
     display_sheet_data()
 
-    # Get user input for editing
     search_value = get_valid_owner_name_input()
 
-    # Find all rows with the specified input in any column
     matched_rows = find_rows_by_input(worksheet, search_value)
 
     if not matched_rows:
@@ -429,21 +412,16 @@ def edit_restaurants():
 
     print(f"Found {len(matched_rows)} row(s) with the value '{search_value}'.")
 
-    # Optionally, you can display the matched rows
     display_sheet_rows(matched_rows)
 
-    # Get user input for editing
     column_index = get_column_index_input()
     new_value = get_new_input(column_index)
 
-    # Update the matching rows with the new value
     for row_index in matched_rows:
         edit_sheet_data(row_index, column_index, new_value)
 
     display_sheet_data()
     print("Exiting to Menu.")
-
-# https://stackoverflow.com/questions/419163/what-does-if-name-main-do
 
 
 if __name__ == "__main__":
