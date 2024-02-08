@@ -26,21 +26,6 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Opera | ![screenshot](documentation/browser/opera.png) |  | Minor differences |
 | repeat for any other tested browsers | x | x | x | x | x |
 
-## Responsiveness
-
-I've tested my deployed project on multiple devices to check for responsiveness issues.
-
-| Device | Home | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Mobile (DevTools) | ![screenshot](documentation/responsive-mobile-home.png) | ![screenshot](documentation/responsive-mobile-about.png) | ![screenshot](documentation/responsive-mobile-contact.png) | ![screenshot](documentation/responsive-mobile-etc.png) | Works as expected |
-| Tablet (DevTools) | ![screenshot](documentation/responsive-tablet-home.png) | ![screenshot](documentation/responsive-tablet-about.png) | ![screenshot](documentation/responsive-tablet-contact.png) | ![screenshot](documentation/responsive-tablet-etc.png) | Works as expected |
-| Desktop | ![screenshot](documentation/responsive-desktop-home.png) | ![screenshot](documentation/responsive-desktop-about.png) | ![screenshot](documentation/responsive-desktop-contact.png) | ![screenshot](documentation/responsive-desktop-etc.png) | Works as expected |
-| XL Monitor | ![screenshot](documentation/responsive-xl-home.png) | ![screenshot](documentation/responsive-xl-about.png) | ![screenshot](documentation/responsive-xl-contact.png) | ![screenshot](documentation/responsive-xl-etc.png) | Scaling starts to have minor issues |
-| 4K Monitor | ![screenshot](documentation/responsive-4k-home.png) | ![screenshot](documentation/responsive-4k-about.png) | ![screenshot](documentation/responsive-4k-contact.png) | ![screenshot](documentation/responsive-4k-etc.png) | Noticeable scaling issues |
-| Google Pixel 7 Pro | ![screenshot](documentation/responsive-pixel-home.png) | ![screenshot](documentation/responsive-pixel-about.png) | ![screenshot](documentation/responsive-pixel-contact.png) | ![screenshot](documentation/responsive-pixel-etc.png) | Works as expected |
-| iPhone 14 | ![screenshot](documentation/responsive-iphone-home.png) | ![screenshot](documentation/responsive-iphone-about.png) | ![screenshot](documentation/responsive-iphone-contact.png) | ![screenshot](documentation/responsive-iphone-etc.png) | Works as expected |
-| repeat for any other tested browsers | x | x | x | x | x |
-
 ## Defensive Programming
 
 | Page | User Action | Expected Result | Pass/Fail | Comments | Screenshot |
@@ -66,6 +51,18 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | | Restaurant Type List Option 3 | Field will only accept a number 1-15 | Pass | ![screenshot](documentation/defensive/defensive_programming_restaurant.png) |
 | | Zip Code List Option 3| Field will only accept a number 1-10 | Pass | ![screenshot](documentation/defensive/defensive_programming_zip.png) |
 
+## User Story Testing
+
+| User Story | Screenshot |
+| --- | --- |
+
+| As a new site user, I would like to add my restaurnt to the database, so that I can have access to the statistic database. | ![screenshot](documentation/features/features_4_add.png)
+| As a new site user, I would like to edit the owner name, because I bought a restaurant. | ![screenshot](documentation/features/features_6_edit.png)
+| As a new site user, I would like to run several searches in the database, so that I can find gaps in the market. ![screenshot](documentation/features/features_5_view.png)
+| As a returning site user, I would like to edit my restuarant, so that I can change the type of restaurant. | ![screenshot](documentation/features/features_6_edit.png)
+| As a returning site user, I would like to view statistics, so that I can see where to invest into a new resturant. | ![screenshot](documentation/features/features_5_view.)
+| As a returning site user, I would like to add a new restaurant, becuase I bought a new restaurant. | ![screenshot](documentation/features/features_4_add.png)
+
 ## Bugs
 
 - Python `Appending the first input even though it was an invalid input` 
@@ -88,43 +85,9 @@ Python `AttributeError: 'NoneType' object has no attribute 'lower'`
     
 ## Unfixed Bugs
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-You will need to mention unfixed bugs and why they were not fixed.
-This section should include shortcomings of the frameworks or technologies used.
-Although time can be a big variable to consider, paucity of time and difficulty understanding
-implementation is not a valid reason to leave bugs unfixed.
-
-If you've identified any unfixed bugs, no matter how small, be sure to list them here.
-It's better to be honest and list them, because if it's not documented and an assessor finds the issue,
-they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
-
-Some examples:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- On devices smaller than 375px, the page starts to have `overflow-x` scrolling.
-
-    ![screenshot](documentation/unfixed-bug01.png)
-
-    - Attempted fix: I tried to add additional media queries to handle this, but things started becoming too small to read.
-
-- For PP3, when using a helper `clear()` function, any text above the height of the terminal does not clear, and remains when you scroll up.
+- After, adding a restaurant and hitting enter to return to them menu, you have to hit enter on the menu option you selected 2 times for it to proceed.
 
     ![screenshot](documentation/unfixed-bug02.png)
 
     - Attempted fix: I tried to adjust the terminal size, but it only resizes the actual terminal, not the allowable area for text.
 
-- When validating HTML with a semantic `section` element, the validator warns about lacking a header `h2-h6`. This is acceptable.
-
-    ![screenshot](documentation/unfixed-bug03.png)
-
-    - Attempted fix: this is a known warning and acceptable, and my section doesn't require a header since it's dynamically added via JS.
-
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-If you legitimately cannot find any unfixed bugs or warnings, then use the following sentence:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-There are no remaining bugs that I am aware of.
