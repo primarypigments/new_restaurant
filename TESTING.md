@@ -16,19 +16,18 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 I've tested my deployed project on multiple browsers to check for compatibility issues.
 
-| Browser | Home | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Chrome | ![screenshot](documentation/browser/chrome.png) |  | Works as expected |
-| Firefox | ![screenshot](documentation/browser/fire_fox.png) |  | Works as expected |
-| Edge | ![screenshot](documentation/browser/edge.png) |  | Works as expected |
-| Safari | ![screenshot](documentation/browser-safari-home.png) | ![screenshot](documentation/browser-safari-about.png) | ![screenshot](documentation/browser-safari-contact.png) | ![screenshot](documentation/browser-safari-etc.png) | Minor CSS differences |
-| Brave | ![screenshot](documentation/browser/brave.png) |  | Works as expected |
-| Opera | ![screenshot](documentation/browser/opera.png) |  | Minor differences |
-| repeat for any other tested browsers | x | x | x | x | x |
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/browser/chrome.png) | Works as expected |
+| Firefox | ![screenshot](documentation/browser/fire_fox.png) | Works as expected |
+| Edge | ![screenshot](documentation/browser/edge.png) | Works as expected |
+| Brave | ![screenshot](documentation/browser/brave.png) | Works as expected |
+| Opera | ![screenshot](documentation/browser/opera.png) | Minor differences |
+
 
 ## Defensive Programming
 
-| Page | User Action | Expected Result | Pass/Fail | Comments | Screenshot |
+| Page | User Action | Expected Result | Pass/Fail | Screenshot |
 | --- | --- | --- | --- | --- |
 | Home | | | | |
 | | Enter on Add New Restaurant | Add owner name screen | Pass | 
@@ -47,7 +46,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Edit Restaurant | | | | |
 | | Enter Owner Name | Field will only accept an existing Owner Name, a string with one space, no numbers, no special characters, not none | Pass | ![screenshot](documentation/defensive/defensive_programming_owner_edit.png) |
 | | Edit Options| Field will only accept 1,2,3 | Pass | ![screenshot](documentation/defensive/defensive_programming_edit_options.png) |
-| Enter Owner Name Option 1| Field will only accept a string with one space, no numbers, no special characters, not none | Pass | ![screenshot](documentation/defensive/defensive_programming_owner_name.png) |
+| | Enter Owner Name Option 1| Field will only accept a string with one space, no numbers, no special characters, not none | Pass | ![screenshot](documentation/defensive/defensive_programming_owner_name.png) |
 | | Restaurant Type List Option 3 | Field will only accept a number 1-15 | Pass | ![screenshot](documentation/defensive/defensive_programming_restaurant.png) |
 | | Zip Code List Option 3| Field will only accept a number 1-10 | Pass | ![screenshot](documentation/defensive/defensive_programming_zip.png) |
 
@@ -55,12 +54,11 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | User Story | Screenshot |
 | --- | --- |
-
 | As a new site user, I would like to add my restaurnt to the database, so that I can have access to the statistic database. | ![screenshot](documentation/features/features_4_add.png)
 | As a new site user, I would like to edit the owner name, because I bought a restaurant. | ![screenshot](documentation/features/features_6_edit.png)
-| As a new site user, I would like to run several searches in the database, so that I can find gaps in the market. ![screenshot](documentation/features/features_5_view.png)
+| As a new site user, I would like to run several searches in the database, so that I can find gaps in the market. | ![screenshot](documentation/features/features_5_view.png)
 | As a returning site user, I would like to edit my restuarant, so that I can change the type of restaurant. | ![screenshot](documentation/features/features_6_edit.png)
-| As a returning site user, I would like to view statistics, so that I can see where to invest into a new resturant. | ![screenshot](documentation/features/features_5_view.)
+| As a returning site user, I would like to view statistics, so that I can see where to invest into a new resturant. | ![screenshot](documentation/features/features_5_view.png)
 | As a returning site user, I would like to add a new restaurant, becuase I bought a new restaurant. | ![screenshot](documentation/features/features_4_add.png)
 
 ## Bugs
