@@ -1,3 +1,5 @@
+import os
+import time
 from simple_term_menu import TerminalMenu
 from tabulate import tabulate
 import gspread
@@ -11,11 +13,11 @@ SCOPE = [
 ]
 
 
-def exits():
+def clear():
     """
-    This function prints a message indicating program exit.
+    Function to clear the terminal.
     """
-    print("Exiting the program.")
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 def display_sheet_data():
@@ -35,6 +37,7 @@ def display_sheet_data():
 
     for row in all_rows[1:]:
         print(tabulate([row], tablefmt="fancy_grid"))
+        time.sleep(0.15)
 
 
 def display_sheet_rows(row_indices):
@@ -77,8 +80,11 @@ def edit_sheet_data(row_index, column_index, new_value):
 
     worksheet.update_cell(row_index, column_index, new_value)
 
-    print(f"Updating cell at ({row_index},")
-    print("{column_index}) with value: {new_value}")
+    clear()
+    print(
+        f"Updating cell at ({row_index}, {column_index}) "
+        f"with value: {new_value}"
+    )
 
 
 def show_program_menu():
@@ -130,10 +136,13 @@ def view_statistics():
     """
     owner_name = get_valid_owner_name_input()
     valid_owner_names = load_valid_values('survey_q', 1)
+    time.sleep(1)
+    clear()
 
     if owner_name in valid_owner_names:
         print(f"'{owner_name}' Welcome Back.")
         zip_code = select_zip_code_list()
+        clear()
         print(f"Zip Code: {zip_code}")
 
         sheet_name = "stat"
@@ -159,7 +168,10 @@ def view_statistics():
             row_index = all_rows.index(filtered_rows[0]) + 1
 
             # Get user input for the restaurant type
+            clear()
             column_name_input = display_restaurant_types_list()
+            print("Searching database, please standby")
+            time.sleep(2)
 
             # Get the header row (assuming it's the first row in the sheet)
             header_row = worksheet.row_values(1)
@@ -185,9 +197,8 @@ def view_statistics():
                             # Adjust to 0-based index
                             # Print information about the number of restaurants
                             # in the specified zip code
-                            print(f"Number of {column_name_input} restaurants")
-                            print(f" '{cell_at_intersection}'")
-                            print(f"in zip code {zip_code}")
+                            clear()
+                            clear()
                             break
             except ValueError:
                 print(f"Column '{column_name_input}'")
@@ -206,19 +217,22 @@ def add_new_restaurant():
     Prints the collected information.
     Appends the information to the Gsheet.
     """
+    clear()
     owner_name = get_valid_owner_name_input()
+    clear()
     rest_type = display_restaurant_types_list()
+    clear()
     zip_code = select_zip_code_list()
+
+    clear()
+    time.sleep(1)
+    clear()
 
     print("Owner's Name:", owner_name)
     print("Restaurant Type:", rest_type)
     print("Zip Code:", zip_code)
 
-    export_to_gsheets(owner_name, rest_type, zip_code)
-    print("Restaurant added successfully!")
-
-    return_to_menu = input("Press Enter to return to the main menu.\n")
-    return show_program_menu()
+    clear()
 
 
 def valid_owner_name_input(owner_input):
@@ -265,7 +279,8 @@ def get_column_index_input():
     Prompt the user for input to select a column index.
     """
     while True:
-        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n")
+        index_input = input("1) New Owner\n2) Restaurant Type\n3) Zip Code\n")
+        clear()
 
         if not any(char.isspace() for char in index_input):
             return index_input
@@ -399,6 +414,7 @@ def edit_restaurants():
     display_sheet_data()
 
     search_value = get_valid_owner_name_input()
+    clear()
 
     matched_rows = find_rows_by_input(worksheet, search_value)
 
@@ -407,6 +423,7 @@ def edit_restaurants():
         return
 
     print(f"Found {len(matched_rows)} row(s) with the value '{search_value}'.")
+    print("")
 
     display_sheet_rows(matched_rows)
 
@@ -417,7 +434,11 @@ def edit_restaurants():
         edit_sheet_data(row_index, column_index, new_value)
 
     display_sheet_data()
-    print("Exiting to Menu.")
+    input("Press ENTER to proceed.")
+    clear()
+    print("Returning to Menu.")
+    time.sleep(2)
+    clear()
 
 
 if __name__ == "__main__":
@@ -427,6 +448,7 @@ if __name__ == "__main__":
     Enters an infinite loop displaying the program menu.
     Calls appropriate functions based on the user's menu selection.
     """
+    clear()
     quitting = False
 
     while not quitting:
