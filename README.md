@@ -1,6 +1,6 @@
 
 
-The year is 1990 and the future of restaurant location searching is here. With "Where To Restaurants" you will be able to find gaps in the restaurant market to help you better invest into the correct type of restaurant into the right location. We have created a database of total restaurant types within 10 zip codes. We give investors or restaurant owners the chance to access this information by adding themselves to our system. By using our system you will save money and time from preforming research when looking for the right location to invest in a restaurant.
+Welcome to Where To Restaurant, a Python-based terminal application designed to help you gauge where to buy, build or invest in a restaurant. With "Where To Restaurants" you will be able to find gaps in the restaurant market to help you better invest into the correct type of restaurant into the right location. We have created a database of total restaurant types within 10 zip codes. We give investors or restaurant owners the chance to access this information by adding themselves to our system. By using our system you will save money and time from preforming research when looking for the right location to invest in a restaurant.
 
 https://ui.dev/amiresponsive?url=https://wheretorestaurant-3bd31d04f4de.herokuapp.com
 
@@ -8,7 +8,7 @@ https://ui.dev/amiresponsive?url=https://wheretorestaurant-3bd31d04f4de.herokuap
 
 ## UX
 
-I used Simple Term Menu to Give the menu color and style. For the Cursor I used purple. For the highting of the menu section
+I used Simple Term Menu to give the menu color and style. For the Cursor I used purple. For the highting of the menu section
 I used yellow. I made sure the user has an uncomplicated time using this app. by creating a list for the inputs.
 
 ## User Stories
@@ -103,18 +103,6 @@ Below is the flowchart of the main process of this Python program. It shows the 
 ![screenshot](documentation/flowchart.png)
 
 ### Classes & Functions
-
-The program uses classes as a blueprint for the project's objects (OOP). This allows for the object to be reusable.
-
-```python
-class Person:
-    """ Insert docstring comments here """
-    def __init__(self, name, age, health, inventory):
-        self.name = name
-        self.age = age
-        self.health = health
-        self.inventory = inventory
-```
 
 The primary functions used on this application are:
 
@@ -265,45 +253,11 @@ You can fork this repository by using the following steps:
 
 ### Local VS Deployment
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+ There are no considerable differences that I have notice.
 
 ## Credits
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- [Stack Overflow]( https://stackoverflow.com/questions/59701452/how-to-update-cells-in-a-google-spreadsheet-with-python-s-gspread-wks-update-cel) used to update a cell in gsheets.
-- [Real Python](https://realpython.com/python-enumerate/) used for enumerate throughout the code.
-- [Geeks For Geeks](https://www.geeksforgeeks.org/loops-in-python/) used as loops resource.
-- [Stack Overflow](https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column) used for appening data.
-- [Geeks For Geeks](]https://www.geeksforgeeks.org/python-lists/?ref=lbp) used for python lists resource.
-- [W3Schools](https://www.w3schools.com/) used for input validation methods.
-- [Code Institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/01-getting-set-up/01-getting-our-gitpod-workspace-set-up) used for secure online code storage.
-- [Code Institute Tutor](https://learn.codeinstitute.net/ci_support/diplomainfullstacksoftwarecommoncurriculum/tutor) used for Bug fixes.
-- [Docs.Gspread](https://docs.gspread.org/en/v6.0.0/user-guide.html) used to figure out how to locate a specific cell in Gsheets.
-- [Digital Ocean](https://www.digitalocean.com/community/tutorials/python-valueerror-exception-handling-examples) used for vauleerror thorughout my code.
-- [Google API Client Libraries](https://developers.google.com/api-client-library) 
-- [Python](https://www.python.org) used as the back-end programming language.
-- [GitHub](https://github.com) used for secure online code storage.
-- [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
-- [Google Sheets](https://www.google.com/sheets/about/) used as a cloud-based spreadsheet application .
-- [Google API Client Libraries](https://developers.google.com/api-client-library) 
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 ### Content
-
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
-A few examples have been provided below to give you some ideas.
-
-Ideally, you should provide an actual link to every resource used, not just a generic link to the main site!
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 | Source | Location | Notes |
 | --- | --- | --- |
@@ -318,43 +272,8 @@ Ideally, you should provide an actual link to every resource used, not just a ge
 | [Code Institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/01-getting-set-up/01-getting-our-gitpod-workspace-set-up) | entire site | using `localStorage()` in JS for high scores |
 | [Docs.Gspread](https://docs.gspread.org/en/v6.0.0/user-guide.html) | entire site | used to figure out how to locate a specific cell in Gsheets. |
 | [Digital Ocean](https://www.digitalocean.com/community/tutorials/python-valueerror-exception-handling-examples) | entire site | used for vauleerror thorughout my code. |
-
-### Media
-
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
-A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
-Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
-The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-| Source | Location | Type | Notes |
-| --- | --- | --- | --- |
-| [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
-
+- [Youtube] (https://www.youtube.com/watch?v=rfscVS0vtbw) used for a tutorial for Getting Input From Users (48:26).
 ### Acknowledgements
-
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-Use this space to provide attribution to any supports that helped, encouraged, or supported you throughout the development stages of this project.
-A few examples have been provided below to give you some ideas.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for their support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
