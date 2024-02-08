@@ -322,7 +322,7 @@ def get_new_input(index_input):
         new_restaurant_type = display_restaurant_types_list()
         return new_restaurant_type
     elif index_input == '3':
-        new_zip_code = select_zip_code_list()
+        new_zip_code = select_zip_code_list().strip()
         return new_zip_code
 
 
