@@ -77,7 +77,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
     - To fix this, I separated the "print" into multiple "print" lines.
 
-Python `AttributeError: 'NoneType' object has no attribute 'lower'` 
+- Python `AttributeError: 'NoneType' object has no attribute 'lower'` 
 
     ![screenshot](documentation/bugs/nonetype_bug.png)
 
