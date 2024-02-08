@@ -49,18 +49,18 @@ def display_sheet_rows(row_indices):
     gc = gspread.authorize(credentials)
     spreadsheet = gc.open('survey_q')
     worksheet = spreadsheet.get_worksheet(0)
-    values_edit = worksheet.get_all_values()
+    values = worksheet.get_all_values()
 
     for row_index in row_indices:
-        print(f"Row {row_index}: {values_edit[row_index - 1]}")
+        print(f"Row {row_index}: {values[row_index - 1]}")
 
 
 def find_rows_by_input(worksheet, search_value):
     """
     Find all rows in a worksheet containing the specified value.
     """
-    values_edit = worksheet.get_all_values()
-    matched_rows = [index + 1 for index, row in enumerate(values_edit) if search_value in row]  # noqa
+    values = worksheet.get_all_values()
+    matched_rows = [index + 1 for index, row in enumerate(values) if search_value in row]  # noqa
     return matched_rows
 
 
