@@ -302,7 +302,7 @@ def get_new_input(index_input):
     while index_input not in valid_indices or index_input.startswith("0"):
         print("Invalid input. Please enter 1, 2, or 3")
         print("without spaces and not starting with 0.")
-        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n")
+        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n").strip()
         index_input = index_input.replace(" ", "")
 
     if index_input == '1':
