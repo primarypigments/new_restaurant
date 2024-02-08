@@ -49,19 +49,19 @@ I used yellow. I made sure the user has an uncomplicated time using this app. by
 
  **Add New Restaurant**
 
-    - This gives the User the ablitly to gain access to the rest of the program and to update the database.
+- This gives the User the ablitly to gain access to the rest of the program and to update the database.
 
 ![screenshot](documentation/features/features_4_add.png)
 
 **View Statistics**
 
-    - This gives the User the ablitly to see where to invest or build a new resturant.
+- This gives the User the ablitly to see where to invest or build a new resturant.
 
 ![screenshot](documentation/features/features_5_view.png)
 
 **Edit Restauarnts**
 
-    - This gives the User the ablitly change owner name, zipcode, restaurant type.
+- This gives the User the ablitly change owner name, zipcode, restaurant type.
 
 ![screenshot](documentation/features/features_6_edit.png)
 
@@ -82,10 +82,10 @@ I used yellow. I made sure the user has an uncomplicated time using this app. by
 - [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
 - [Google Sheets](https://www.google.com/sheets/about/) used as a cloud-based spreadsheet application .
 - [Google API Client Libraries](https://developers.google.com/api-client-library) 
-            google-api-python-client: Provides the Python client library for Google APIs.
-            google-auth: Used for authenticating with Google services.
-            google-auth-httplib2: Provides HTTP request handling for Google API authentication.
-            google-auth-oauthlib: Offers OAuth 2.0 handling for Google API authentication.
+    - google-api-python-client: Provides the Python client library for Google APIs.
+    - google-auth: Used for authenticating with Google services.
+    - google-auth-httplib2: Provides HTTP request handling for Google API authentication.
+    - google-auth-oauthlib: Offers OAuth 2.0 handling for Google API authentication.
 - [Gspread](https://docs.gspread.org/en/v5.10.0/) used as a library for working with Google Sheets and Google Drive.
 - [Simple Term Menu](https://pypi.org/project/simple-term-menu/) used for creating interactive terminal menus to facilitate user navigation within the application.
 - [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
@@ -274,11 +274,12 @@ You can fork this repository by using the following steps:
 | [Code Institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/01-getting-set-up/01-getting-our-gitpod-workspace-set-up) | entire site | using `localStorage()` in JS for high scores |
 | [Docs.Gspread](https://docs.gspread.org/en/v6.0.0/user-guide.html) | entire site | used to figure out how to locate a specific cell in Gsheets. |
 | [Digital Ocean](https://www.digitalocean.com/community/tutorials/python-valueerror-exception-handling-examples) | entire site | used for vauleerror thorughout my code. |
-- [Youtube] (https://www.youtube.com/watch?v=rfscVS0vtbw) used for a tutorial for Getting Input From Users (48:26).
+| [YouTube](https://www.youtube.com/watch?v=rfscVS0vtbw) | entire site | used for a tutorial for Getting Input From Users (48:26). |
+
 ### Acknowledgements
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for their support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner (John/Jane), for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
+- I would like to thank my partner Coleen Sciacca, and my children, for believing in me, and allowing me to make this transition into software development.
+I would like to thank Agnetor für Arbeit, for supporting me in my journey.
