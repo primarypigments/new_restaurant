@@ -292,14 +292,15 @@ def get_column_index_input():
     """
     print("\nEditing a column will alter all rows above.\n")
     print("Which column would you like to edit? 1 / 2 / 3\n")
+    
     while True:
         index_input = input("1) New Owner\n2) Restaurant Type\n3) Zip Code\n")
         clear()
 
-        if not any(char.isspace() for char in index_input):
+        if not any(char.isspace() for char in index_input) and index_input.isdigit() and 1 <= int(index_input) <= 3:
             return index_input
         else:
-            print("Spaces are not allowed. Please enter 1, 2, or 3.")
+            print("Invalid input. Please enter 1, 2, or 3 without spaces.")
 
 
 def get_new_input(index_input):
