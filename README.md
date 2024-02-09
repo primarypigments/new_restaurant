@@ -1,6 +1,6 @@
 
 
-Welcome to Where To Restaurant, a Python-based terminal application designed to help you gauge where to buy, build or invest in a restaurant. With "Where To Restaurants" you will be able to find gaps in the restaurant market to help you better invest into the correct type of restaurant into the right location. We have created a database of total restaurant types within 10 zip codes. We give investors or restaurant owners the chance to access this information by adding themselves to our system. By using our system you will save money and time from preforming research when looking for the right location to invest in a restaurant.
+Welcome to Where To Restaurant, a Python-based terminal application designed to help you gauge where to buy, build or invest in a restaurant. With "Where To Restaurants” you will be able to find gaps in the restaurant market to help you better invest into the correct type of restaurant into the right location. We have created a database of total restaurant types within 10 zip codes. We give investors or restaurant owners the chance to access this information by adding themselves to our system. By using our system you will save money and time from performing research when looking for the right location to invest in a restaurant.
 
 https://ui.dev/amiresponsive?url=https://wheretorestaurant-3bd31d04f4de.herokuapp.com
 
@@ -10,70 +10,66 @@ https://ui.dev/amiresponsive?url=https://wheretorestaurant-3bd31d04f4de.herokuap
 
 I used Simple Term Menu to give the menu color and style. For the Cursor I used purple. For the highting of the menu section
 I used yellow. I made sure the user has an uncomplicated time using this app. by creating a list for the inputs.
+I also used Tabulate to make the data more reader friendly. 
 
 ## User Stories
 
 ### New Site Users
 
-- As a new site user, I would like to add my restaurnt to the database, so that I can have access to the statistic database.
-- As a new site user, I would like to edit the owner name, because I bought a restaurant.
+- As a new site user, I would like to add my restaurant to the database, so that I can have access to the statistics database.
+- As a new site user, I would like to edit the owner's name, because I bought a restaurant.
 - As a new site user, I would like to run several searches in the database, so that I can find gaps in the market.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to edit my restuarant, so that I can change the type of restaurant.
-- As a returning site user, I would like to view statistics, so that I can see where to invest into a new resturant.
-- As a returning site user, I would like to add a new restaurant, becuase I bought a new restaurant.
+- As a returning site user, I would like to edit my restaurant, so that I can change the type of restaurant.
+- As a returning site user, I would like to view statistics, so that I can see where to invest into a new restaurant.
+- As a returning site user, I would like to add a new restaurant, because I bought a new restaurant.
 
 ## Features
 
 ### Existing Features
 
 - **Menu**
+    -  Created a simple menu with colors to give the user easy navigation through the program. 
 
-    - Created a simple menu with colors to give the user easy navigation through the program
-
-![screenshot](documentation/features/features_1_menu.png)
-
-- **Restaurant List**
-
-    - This feature gives the user to create more relyable and consistant data
-
-![screenshot](documentation/features/features_2_rlist.png)
+    -![screenshot](documentation/features/features_2_rlist.png)
 
 - **Zip Code List**
 
-    - This gives the User a list of the acutall targted Zip Codes.
+    - This gives the User a list of the actual targeted Zip Codes.
 
 ![screenshot](documentation/features/features_3_zlist.png)
 
  **Add New Restaurant**
 
-- This gives the User the ablitly to gain access to the rest of the program and to update the database.
+- This gives the User the ability to gain access to the rest of the program and to update the database.
 
 ![screenshot](documentation/features/features_4_add.png)
 
 **View Statistics**
 
-- This gives the User the ablitly to see where to invest or build a new resturant.
+- This gives the User the ability to see where to invest or build a new restaurant.
+
 
 ![screenshot](documentation/features/features_5_view.png)
 
-**Edit Restauarnts**
+**Edit Restaurants**
 
-- This gives the User the ablitly change owner name, zipcode, restaurant type.
-
+- This gives the User the ability change owner name, zip code, restaurant type.
 ![screenshot](documentation/features/features_6_edit.png)
-
 
 ### Future Features
 
 - Wider Range of Zip Codes
-    - This will give the user more options of locations for new resturants.
-- Statistics for demand per Zip Code 
-    - This will give the users a clearer insite of what restaurant type to ivest in.
-- Convert infor mation into graphs when aplicable
-    - This give the user a visual to helo understand the information.
+    - This will give the user more options of locations for new restaurants.
+- Statistics for demand per Zip Code.
+    - This will give the users a clearer insight of what restaurant type to invest in.
+- Convert information into graphs when applicable.
+    - This gives the user a visual to help understand the information.
+- The ability to Select a single row when editing restaurants.
+   - This gives the user a better precision when editing .
+
 
 ## Tools & Technologies Used
 
@@ -268,18 +264,18 @@ You can fork this repository by using the following steps:
 | [Stack Overflow]( https://stackoverflow.com/questions/59701452/how-to-update-cells-in-a-google-spreadsheet-with-python-s-gspread-wks-update-cel) | entire site | used to update a cell in gsheets. |
 | [Real Python](https://realpython.com/python-enumerate/) | entire site | used for enumerate throughout the code. |
 | [Geeks For Geeks](https://www.geeksforgeeks.org/loops-in-python/) | entire site | used as loops resource. |
-| [Stack Overflow](https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column) | entire site | used for appening data. |
+| [Stack Overflow](https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column) | entire site | used for appending data. |
 | [Geeks For Geeks](]https://www.geeksforgeeks.org/python-lists/?ref=lbp) | entire site | used for python lists resource. |
 | [W3Schools](https://www.w3schools.com/) | entire site | used for input validation methods. |
-| [Code Institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/01-getting-set-up/01-getting-our-gitpod-workspace-set-up) | entire site | using `localStorage()` in JS for high scores |
 | [Docs.Gspread](https://docs.gspread.org/en/v6.0.0/user-guide.html) | entire site | used to figure out how to locate a specific cell in Gsheets. |
 | [Digital Ocean](https://www.digitalocean.com/community/tutorials/python-valueerror-exception-handling-examples) | entire site | used for vauleerror thorughout my code. |
 | [YouTube](https://www.youtube.com/watch?v=rfscVS0vtbw) | entire site | used for a tutorial for Getting Input From Users (48:26). |
+| [ChatGPT](https://chat.openai.com/) | entire site | used for list contents (zip codes and restaurant types) understanding error messages, help with learning the correct vocabulary in commit messages. |
 
 ### Acknowledgements
 
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for their support throughout the development of this project.
+- "I extend my heartfelt gratitude to my mentor at Code Institute, Tim Nelson, for their invaluable support during our calls for this project. Tim's guidance has been instrumental in shaping me into a more proficient programmer, and I am truly thankful for the wealth of knowledge and expertise shared. This project has been a tremendous learning experience, and I am grateful for Tim's mentorship that has contributed significantly to my growth as a developer."
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner Coleen Sciacca, and my children, for believing in me, and allowing me to make this transition into software development.
-I would like to thank Agnetor für Arbeit, for supporting me in my journey.
+- "I extend my sincere thanks to my partner, Coleen Sciacca, and my children for their unwavering belief in me and their support during my transition into software development. Their encouragement has been a driving force behind my journey, and I am grateful for the understanding and encouragement they have provided. Their belief in my abilities has made this transition smoother, and I look forward to sharing the successes ahead with them."
+- "I express my gratitude to Agnetor für Arbeit for their steadfast support throughout my journey. Their assistance has been a crucial factor in my endeavors, and I am thankful for the support they have provided. Their encouragement has played a significant role in my journey, and I appreciate their commitment to assisting me on this path."

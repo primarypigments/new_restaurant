@@ -54,12 +54,12 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to add my restaurnt to the database, so that I can have access to the statistic database. | ![screenshot](documentation/features/features_4_add.png)
-| As a new site user, I would like to edit the owner name, because I bought a restaurant. | ![screenshot](documentation/features/features_6_edit.png)
+| As a new site user, I would like to add my restaurant to the database, so that I can have access to the statistics database. | ![screenshot](documentation/features/features_4_add.png)
+| As a new site user, I would like to edit the owner's name, because I bought a restaurant. | ![screenshot](documentation/features/features_6_edit.png)
 | As a new site user, I would like to run several searches in the database, so that I can find gaps in the market. | ![screenshot](documentation/features/features_5_view.png)
 | As a returning site user, I would like to edit my restuarant, so that I can change the type of restaurant. | ![screenshot](documentation/features/features_6_edit.png)
-| As a returning site user, I would like to view statistics, so that I can see where to invest into a new resturant. | ![screenshot](documentation/features/features_5_view.png)
-| As a returning site user, I would like to add a new restaurant, becuase I bought a new restaurant. | ![screenshot](documentation/features/features_4_add.png)
+| As a returning site user, I would like to view statistics, so that I can see where to invest into a new restaurant. | ![screenshot](documentation/features/features_5_view.png)
+| As a returning site user, I would like to add a new restaurant, because I bought a new restaurant. | ![screenshot](documentation/features/features_4_add.png)
 
 ## Bugs
 
@@ -67,7 +67,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
     ![screenshot](documentation/bugs/appending_numbers_bug.png)
 
-    - To fix this, I combined the Owner validation functions to ensure that the validation works as expected. This was a compbined effort with the help of the Tutor team.
+    - To fix this, I combined the Owner validation functions to ensure that the validation works as expected. This was a combined effort with the help of the Tutor team.
 
 - Python `E501 line too long` (125 > 79 characters)
 
@@ -75,17 +75,20 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
     - To fix this, I separated the "print" into multiple "print" lines.
 
-- Python `AttributeError: 'NoneType' object has no attribute 'lower'` 
+- Python `Input value being accepted despite being invalid` 
+
+    ![screenshot](documentation/bugs/edit_space_bug.png)
+
+    - .To fix this, I made a conditional statement with chained comparisons that only accepts the input of 1, 2, 3.
+    
+     Python `AttributeError: 'NoneType' object has no attribute 'lower'` 
 
     ![screenshot](documentation/bugs/nonetype_bug.png)
 
-    - To fix this, I made sure there are no extra spaces in the user's input, validate the owner's name, and ensure it's converted to lowercase only when there's a valid input.
-    
+    - To fix this, I made sure there are no extra spaces in the user's input, validate the owner's name, and ensure it's converted to lowercase only when there's a valid input
+
 ## Unfixed Bugs
 
-- After, adding a restaurant and hitting enter to return to them menu, you have to hit enter on the menu option you selected 2 times for it to proceed.
+- There are no remaining bugs that I am aware of.
 
-    ![screenshot](documentation/unfixed-bug02.png)
-
-    - Attempted fix: I tried to adjust the terminal size, but it only resizes the actual terminal, not the allowable area for text.
-
+    
