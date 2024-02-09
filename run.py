@@ -307,14 +307,13 @@ def get_new_input(index_input):
     Takes a column index as input and returns
     corresponding user input based on the index.
     """
-    while True:
-        valid_indices = ["1", "2", "3"]
-        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n").strip()
-        if index_input not in valid_indices:
-            print(f"{index_input} is invalid. Please enter 1, 2, or 3")
-            print("Do not add spaces or leading 0s (eg: 01)")
-        else:
-            break
+    valid_indices = ['1', '2', '3']
+
+    while index_input not in valid_indices or index_input.startswith("0"):
+        print("Invalid input. Please enter 1, 2, or 3")
+        print("without spaces and not starting with 0.")
+        index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n").strip()  # noqa
+        index_input = index_input.replace(" ", "")
 
 
     if index_input == '1':
