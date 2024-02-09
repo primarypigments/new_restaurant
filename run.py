@@ -292,19 +292,13 @@ def get_column_index_input():
     """
     print("\nEditing a column will alter all rows above.\n")
     print("Which column would you like to edit? 1 / 2 / 3\n")
-    
+
     while True:
         index_input = input("1) New Owner\n2) Restaurant Type\n3) Zip Code\n")
         clear()
 
-        if (
-    not any(char.isspace() for char in index_input) and
-    index_input.isdigit() and
-    1 <= int(index_input) <= 3 and
-    int(index_input) != 0 and
-    len(index_input) == 1
-):
-    
+        if (not any(char.isspace() for char in index_input) and index_input.isdigit() and 1 <= int(index_input) <= 3 and int(index_input) != 0 and len(index_input) == 1):  # noqa
+
             return index_input
         else:
             print("Invalid input. Please enter 1, 2, or 3 without spaces.")
@@ -322,7 +316,6 @@ def get_new_input(index_input):
         print("without spaces and not starting with 0.")
         index_input = input("1 is New Owner, 2 Restaurant Type, 3 Zip Code\n").strip()  # noqa
         index_input = index_input.replace(" ", "")
-
 
     if index_input == '1':
         new_owner_name = get_valid_owner_name_input()
