@@ -247,29 +247,25 @@ def add_new_restaurant():
     clear()
 
 
-def valid_owner_name_input(owner_input):
-    """
-    This function validates the owner name input.
-    Ensures that the owner name contains only letters and a single space.
-    """
-    while owner_input is None or not (
-            all((o.isalpha() or (o.isspace() and owner_input.count(o) == 1))
-                for o in owner_input) and len(owner_input.strip()) > 0):
-        owner_input = input("Invalid input. Please enter a valid owner name: ")
 
-    return owner_input.strip()
 
 
 def get_valid_owner_name_input():
     """
     This function retrieves valid owner name input from the user.
     """
-    owner_input = input("Enter owner's name: \n").strip()
-    while not owner_input or not valid_owner_name_input(owner_input):
-        print("Invalid Owner's Name. Please try again.")
-        owner_input = input("Enter owner's name: \n").strip()
+    while True:
+        owner_input = input("Enter owner's name: \n")
+        clear()
+        
+        if owner_input and all((o.isalpha() or (o.isspace() and owner_input.count(o) == 1))  # noqa
+                                for o in owner_input) \
+                and len(owner_input.strip()) > 0 and '  ' not in owner_input:
+            return owner_input.lower()
+        else:
+            print("Invalid input. Please try again.")
 
-    return valid_owner_name_input(owner_input).lower()
+    return get_valid_owner_name_input().lower()
 
 
 def export_to_gsheets(owner_name, rest_type, zip_code):
