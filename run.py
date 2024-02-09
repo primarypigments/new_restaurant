@@ -247,9 +247,6 @@ def add_new_restaurant():
     clear()
 
 
-
-
-
 def get_valid_owner_name_input():
     """
     This function retrieves valid owner name input from the user.
@@ -257,7 +254,7 @@ def get_valid_owner_name_input():
     while True:
         owner_input = input("Enter owner's name: \n")
         clear()
-        
+
         if owner_input and all((o.isalpha() or (o.isspace() and owner_input.count(o) == 1))  # noqa
                                 for o in owner_input) \
                 and len(owner_input.strip()) > 0 and '  ' not in owner_input:
