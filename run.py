@@ -297,7 +297,7 @@ def get_column_index_input():
         index_input = input("1) New Owner\n2) Restaurant Type\n3) Zip Code\n")
         clear()
 
-        if not any(char.isspace() for char in index_input) and index_input.isdigit() and 1 <= int(index_input) <= 3:
+        if not any(char.isspace() for char in index_input) and index_input.isdigit() and 1 <= int(index_input) <= 3:  # noqa
             return index_input
         else:
             print("Invalid input. Please enter 1, 2, or 3 without spaces.")
