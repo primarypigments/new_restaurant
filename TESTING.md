@@ -85,7 +85,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
     ![screenshot](documentation/bugs/nonetype_bug.png)
 
-    - To fix this, I made sure there are no extra spaces in the user's input, validate the owner's name, and ensure it's converted to lowercase only when there's a valid input
+    - To fix this, I made sure there are no extra spaces in the user's input, validate the owner's name, and ensure it's converted to lowercase only when there's a valid input.
 
 ## Unfixed Bugs
 
