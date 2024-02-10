@@ -265,7 +265,7 @@ You can fork this repository by using the following steps:
 | [Real Python](https://realpython.com/python-enumerate/) | entire site | used for enumerate throughout the code. |
 | [Geeks For Geeks](https://www.geeksforgeeks.org/loops-in-python/) | entire site | used as loops resource. |
 | [Stack Overflow](https://stackoverflow.com/questions/60793155/gspread-append-row-appending-data-to-different-column) | entire site | used for appending data. |
-| [Geeks For Geeks](]https://www.geeksforgeeks.org/python-lists/?ref=lbp) | entire site | used for python lists resource. |
+| [Geeks For Geeks](https://www.geeksforgeeks.org/python-lists/?ref=lbp) | entire site | used for python lists resource. |
 | [W3Schools](https://www.w3schools.com/) | entire site | used for input validation methods. |
 | [Docs.Gspread](https://docs.gspread.org/en/v6.0.0/user-guide.html) | entire site | used to figure out how to locate a specific cell in Gsheets. |
 | [Digital Ocean](https://www.digitalocean.com/community/tutorials/python-valueerror-exception-handling-examples) | entire site | used for vauleerror thorughout my code. |
